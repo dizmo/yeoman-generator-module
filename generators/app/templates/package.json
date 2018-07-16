@@ -1,0 +1,30 @@
+{
+  "author": {
+    "name": "<%= personName %>",
+    "email": "<%= personEmail %>",
+    "url": "<%= personUrl %>"
+  },
+  "description": "<%= description %>",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "library",
+    "module"
+  ],
+  "license": "ISC",
+  "main": "dist/index.js",
+  "name": "<%= name %>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.0.0"
+}
