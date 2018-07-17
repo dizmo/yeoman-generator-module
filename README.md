@@ -6,43 +6,43 @@
 * [Node.js] v8.11.3 LTS (or higher); for Linux distribution based packages (`deb` or `rpm`) see also [binary distributions](https://github.com/nodesource/distributions).
 
 ## Install
-```bash
+```sh
 (sudo) npm install -g yo
 ```
-```bash
+```sh
 (sudo) npm install -g @dizmo/generator-module
 ```
 
 ## Help
-```bash
+```sh
 yo @dizmo/module --help
 ```
 
 ## Generate
 ### JavaScript
-```bash
+```sh
 yo @dizmo/module
 ```
 ### TypeScript
-```bash
+```sh
 yo @dizmo/module --typescript
 ```
 ### CoffeeScript
-```bash
+```sh
 yo @dizmo/module --coffeescript
 ```
 
 ## Upgrade
 ### JavaScript
-```bash
+```sh
 yo @dizmo/module --upgrade
 ```
 ### TypeScript
-```bash
+```sh
 yo @dizmo/module --upgrade --typescript
 ```
 ### CoffeeScript
-```bash
+```sh
 yo @dizmo/module --upgrade --coffeescript
 ```
 
@@ -67,6 +67,15 @@ npm run test
 ### Cover
 ```sh
 npm run cover
+```
+
+## Publish
+```sh
+npm publish
+```
+#### initially (if *public*):
+```sh
+npm publish --access=public
 ```
 
 ## Copyright
