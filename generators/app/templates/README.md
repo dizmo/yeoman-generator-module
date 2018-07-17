@@ -5,24 +5,20 @@
 Library module.
 
 ## Usage
-
 ### Install
 ```sh
 npm install <%= name %> --save
 ```
-
 ### Require
 ```javascript
 var lib = require('<%= name %>');
 ```
 
 ## Development
-
 ### Build
 ```sh
 npm run build
 ```
-
 ### Lint
 ```sh
 npm run lint
@@ -31,12 +27,11 @@ npm run lint
 ```sh
 npm run lint:fix
 ```
-
+Only supported for JavaScript and TypeScript, but not CoffeeScript modules.
 ### Test
 ```sh
 npm run test
 ```
-
 ### Cover
 ```sh
 npm run cover
