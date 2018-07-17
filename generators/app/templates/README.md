@@ -18,11 +18,6 @@ var lib = require('<%= name %>');
 
 ## Development
 
-### Install
-```sh
-npm install
-```
-
 ### Build
 ```sh
 npm run build
