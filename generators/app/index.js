@@ -285,6 +285,11 @@ module.exports = class extends generator {
                 this.destinationPath('package.json'), this.properties);
         }
         if (!upgrade || upgrade) {
+            this.fs.copy(
+                this.templatePath('cli/'),
+                this.destinationPath('cli/'));
+        }
+        if (!upgrade || upgrade) {
             let pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
             );
@@ -309,11 +314,11 @@ module.exports = class extends generator {
             );
             pkg.scripts = sort(
                 lodash.assign(pkg.scripts, {
-                    'build': 'npx babel lib -d dist --presets=env -s',
-                    'cover': 'npx istanbul cover _mocha test/*.js',
-                    'lint': 'npx eslint --config .eslintrc.json \'lib/**/*.js\'',
-                    'lint:fix': 'npx eslint --config .eslintrc.json \'lib/**/*.js\' --fix',
-                    'test': 'npx mocha'
+                    'build': 'node ./cli/run-build.js',
+                    'cover': 'node ./cli/run-cover.js',
+                    'lint': 'node ./cli/run-lint.js',
+                    'lint:fix': 'node ./cli/run-lint-fix.js',
+                    'test': 'node ./cli/run-test.js'
                 })
             );
             this.fs.writeJSON(
@@ -369,10 +374,8 @@ module.exports = class extends generator {
                 }
             ));
         } else {
-            this.log('\n' + 'Setting the project root at: '
-                + this.destinationPath() + '. Run:');
-            this.log('\n' + '   ' + chalk.white.bold(
-                'cd', this.destinationPath(), '&&', 'npm install') + '\n');
+            this.log(
+                `\nSetting the project root at: ${this.destinationPath()}`);
         }
         this._rim();
         this._git();

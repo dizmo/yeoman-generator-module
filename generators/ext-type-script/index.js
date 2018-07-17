@@ -26,6 +26,11 @@ module.exports = class extends generator {
         let upgrade = Boolean(
             this.options.upgrade && fs.existsSync('package.json'));
         if (!upgrade || upgrade) {
+            this.fs.copy(
+                this.templatePath('cli/'),
+                this.destinationPath('cli/'));
+        }
+        if (!upgrade || upgrade) {
             let pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
             );
@@ -33,13 +38,6 @@ module.exports = class extends generator {
                 lodash.assign(pkg.devDependencies, {
                     'tslint': '^5.10.0',
                     'typescript': '^2.9.2'
-                })
-            );
-            pkg.scripts = sort(
-                lodash.assign(pkg.scripts, {
-                    'build': 'npx tsc && npx babel dist -d dist --presets=env -s',
-                    'lint': 'npx tslint --config tslint.json \'lib/**/*.ts\'',
-                    'lint:fix': 'npx tslint --config tslint.json \'lib/**/*.ts\' --fix'
                 })
             );
             this.fs.writeJSON(
@@ -66,9 +64,5 @@ module.exports = class extends generator {
             this.destinationPath('.eslintrc.json'));
         rimraf.sync(
             this.destinationPath('lib/index.js'));
-
-        this.log('\n' + 'Run:');
-        this.log('\n' + '   ' + chalk.white.bold(
-            'cd', this.destinationPath(), '&&', 'npm install') + '\n');
     }
 };

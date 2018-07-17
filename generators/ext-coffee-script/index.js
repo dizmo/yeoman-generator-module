@@ -26,6 +26,11 @@ module.exports = class extends generator {
         let upgrade = Boolean(
             this.options.upgrade && fs.existsSync('package.json'));
         if (!upgrade || upgrade) {
+            this.fs.copy(
+                this.templatePath('cli/'),
+                this.destinationPath('cli/'));
+        }
+        if (!upgrade || upgrade) {
             let pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
             );
@@ -33,12 +38,6 @@ module.exports = class extends generator {
                 lodash.assign(pkg.devDependencies, {
                     'coffeelint': '2.1.0',
                     'coffeescript': '^2.3.1'
-                })
-            );
-            pkg.scripts = sort(
-                lodash.assign(pkg.scripts, {
-                    'build': 'npx coffee --no-header -bco dist lib && npx babel dist -d dist --presets=env -s',
-                    'lint': 'npx coffeelint --file coffeelint.json --quiet lib/*.coffee'
                 })
             );
             if (pkg.scripts['lint:fix']) {
@@ -62,12 +61,10 @@ module.exports = class extends generator {
 
     end() {
         rimraf.sync(
+            this.destinationPath('cli/run-lint-fix.js'));
+        rimraf.sync(
             this.destinationPath('.eslintrc.json'));
         rimraf.sync(
             this.destinationPath('lib/index.js'));
-
-        this.log('\n' + 'Run:');
-        this.log('\n' + '   ' + chalk.white.bold(
-            'cd', this.destinationPath(), '&&', 'npm install') + '\n');
     }
 };
