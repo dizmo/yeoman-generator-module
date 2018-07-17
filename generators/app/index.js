@@ -304,16 +304,15 @@ module.exports = class extends generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'tslint': '^5.10.0',
-                    'typescript': '^2.9.2'
+                    'eslint': '^5.1.0'
                })
             );
             pkg.scripts = sort(
                 lodash.assign(pkg.scripts, {
-                    'build': 'npx tsc && npx babel dist/index.js --presets=env -o dist/index.js -s',
+                    'build': 'npx babel lib -d dist --presets=env -s',
                     'cover': 'npx istanbul cover _mocha test/*.js',
-                    'lint': 'npx tslint --config tslint.json \'lib/**/*.ts\'',
-                    'lint:fix': 'npx tslint --config tslint.json \'lib/**/*.ts\' --fix',
+                    'lint': 'npx eslint --config .eslintrc.json \'lib/**/*.js\'',
+                    'lint:fix': 'npx eslint --config .eslintrc.json \'lib/**/*.js\' --fix',
                     'test': 'npx mocha'
                 })
             );
@@ -324,9 +323,6 @@ module.exports = class extends generator {
             this.fs.copy(
                 this.templatePath('lib/'),
                 this.destinationPath('lib/'));
-            this.fs.copyTpl(
-                this.templatePath('lib/index.ts'),
-                this.destinationPath('lib/index.ts'), this.properties);
             this.fs.copy(
                 this.templatePath('test/'),
                 this.destinationPath('test/'));
@@ -342,11 +338,8 @@ module.exports = class extends generator {
         }
         if (!upgrade) {
             this.fs.copy(
-                this.templatePath('tsconfig.json'),
-                this.destinationPath('tsconfig.json'));
-            this.fs.copy(
-                this.templatePath('tslint.json'),
-                this.destinationPath('tslint.json'));
+                this.templatePath('.eslintrc.json'),
+                this.destinationPath('.eslintrc.json'));
         }
         if (!upgrade || upgrade) {
             if (this.options.git || fs.existsSync('.gitignore')) {
@@ -364,13 +357,13 @@ module.exports = class extends generator {
 
     end() {
         if (this.options['coffeescript']) {
-            this.composeWith('dizmo:ext-coffee-script', lodash.assign(
+            this.composeWith('@dizmo/module:ext-coffee-script', lodash.assign(
                 this.options, {
                     args: this.args, force: this.properties.initial
                 }
             ));
         } else if (this.options['typescript']) {
-            this.composeWith('dizmo:ext-type-script', lodash.assign(
+            this.composeWith('@dizmo/module:ext-type-script', lodash.assign(
                 this.options, {
                     args: this.args, force: this.properties.initial
                 }
