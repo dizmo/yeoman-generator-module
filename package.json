@@ -21,8 +21,13 @@
   "homepage": "https://github.com/dizmo/yeoman-generator-module",
   "keywords": [
     "yeoman-generator",
+    "node",
     "module",
-    "generator"
+    "generator",
+    "javascript",
+    "typescript",
+    "coffeescript",
+    "dizmoMod"
   ],
   "license": "ISC",
   "main": "index.js",
