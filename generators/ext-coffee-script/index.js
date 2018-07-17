@@ -31,17 +31,19 @@ module.exports = class extends generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'tslint': '^5.10.0',
-                    'typescript': '^2.9.2'
+                    'coffeelint': '2.1.0',
+                    'coffeescript': '^2.3.1'
                 })
             );
             pkg.scripts = sort(
                 lodash.assign(pkg.scripts, {
-                    'build': 'npx tsc && npx babel dist -d dist --presets=env -s',
-                    'lint': 'npx tslint --config tslint.json \'lib/**/*.ts\'',
-                    'lint:fix': 'npx tslint --config tslint.json \'lib/**/*.ts\' --fix'
+                    'build': 'npx coffee --no-header -bco dist lib && npx babel dist -d dist --presets=env -s',
+                    'lint': 'npx coffeelint --file coffeelint.json --quiet lib/*.coffee'
                 })
             );
+            if (pkg.scripts['lint:fix']) {
+                delete pkg.scripts['lint:fix'];
+            }
             this.fs.writeJSON(
                 this.destinationPath('package.json'), pkg, null, 2);
         }
@@ -52,11 +54,8 @@ module.exports = class extends generator {
         }
         if (!upgrade) {
             this.fs.copy(
-                this.templatePath('tslint.json'),
-                this.destinationPath('tslint.json'));
-            this.fs.copy(
-                this.templatePath('tsconfig.json'),
-                this.destinationPath('tsconfig.json'));
+                this.templatePath('coffeelint.json'),
+                this.destinationPath('coffeelint.json'));
         }
         this.conflicter.force = this.options.force || upgrade;
     }
