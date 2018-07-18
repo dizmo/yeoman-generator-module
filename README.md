@@ -1,4 +1,6 @@
-# @dizmo/generator-module [![NPM version][npm-image]][npm-url]
+[![NPM version](https://badge.fury.io/js/%40dizmo%2Fgenerator-module.svg)](https://npmjs.org/package/@dizmo/generator-module)
+
+# @dizmo/generator-module
 > Generator for [Node.js] JavaScript, TypeScript and CoffeeScript modules
 
 ## Prerequisites
@@ -65,7 +67,3 @@ npm publish --access=public
  © 2018 [dizmo AG](http://dizmo.com/), Switzerland
 
 [Node.js]: https://nodejs.org
-
-[npm]: http://www.npmjs.com
-[npm-image]: https://badge.fury.io/js/%40dizmo%2Fgenerator-module.svg
-[npm-url]: https://npmjs.org/package/@dizmo/generator-module

@@ -39,6 +39,6 @@ npm run test
 npm run cover
 ```
 
-## License
+## Copyright
 
  © <%= year %> [<%= personName %>](<%= personUrl %>)
