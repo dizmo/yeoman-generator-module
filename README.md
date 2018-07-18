@@ -19,31 +19,13 @@ yo @dizmo/module --help
 ```
 
 ## Generate
-### JavaScript
 ```sh
-yo @dizmo/module
-```
-### TypeScript
-```sh
-yo @dizmo/module --typescript
-```
-### CoffeeScript
-```sh
-yo @dizmo/module --coffeescript
+yo @dizmo/module [--typescript|--coffeescript] [--git]
 ```
 
 ## Upgrade
-### JavaScript
 ```sh
-yo @dizmo/module --upgrade
-```
-### TypeScript
-```sh
-yo @dizmo/module --upgrade --typescript
-```
-### CoffeeScript
-```sh
-yo @dizmo/module --upgrade --coffeescript
+yo @dizmo/module [--typescript|--coffeescript] --upgrade
 ```
 
 ## Development
@@ -73,7 +55,7 @@ npm run cover
 ```sh
 npm publish
 ```
-#### initially (if *public*):
+#### initially (if `public`):
 ```sh
 npm publish --access=public
 ```
