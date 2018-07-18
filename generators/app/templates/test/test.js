@@ -24,17 +24,20 @@ describe('index.id', () => {
     it('should return nothing', () => {
         expect(index.id()).to.equal(undefined);
     });
-    it('should return something', () => {
+    it('should return a value', () => {
         expect(index.id(undefined)).to.equal(undefined);
         expect(index.id(null)).to.equal(null);
         expect(index.id(true)).to.equal(true);
     });
-    it('should return anything', () => {
-        expect(index.id(undefined, null)[0]).to.equal(undefined);
-        expect(index.id(undefined, null)[1]).to.equal(null);
-        expect(index.id(false, true)[0]).to.equal(false);
-        expect(index.id(false, true)[1]).to.equal(true);
-        expect(index.id(0, 1)[0]).to.equal(0);
-        expect(index.id(0, 1)[1]).to.equal(1);
+    it('should return an array', () => {
+        let a = index.id(undefined, null)
+        expect(a).to.be.an('array');
+        expect(a).to.include.members([undefined, null]);
+        let b = index.id(false, true)
+        expect(b).to.be.an('array');
+        expect(b).to.include.members([false, true]);
+        let c = index.id(0, 1)
+        expect(c).to.be.an('array');
+        expect(c).to.include.members([0, 1]);
     });
 });
