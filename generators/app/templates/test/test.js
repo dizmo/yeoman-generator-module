@@ -18,6 +18,9 @@ describe('index.id', () => {
     it('should be a function', () => {
         expect(index.id).to.be.a('function');
     });
+});
+
+describe('index.id', () => {
     it('should return nothing', () => {
         expect(index.id()).to.equal(undefined);
     });
