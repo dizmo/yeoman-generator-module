@@ -40,6 +40,9 @@ module.exports = class extends generator {
                     'typescript': '^2.9.2'
                 })
             );
+            if (pkg.devDependencies['eslint']) {
+                delete pkg.devDependencies['eslint'];
+            }
             this.fs.writeJSON(
                 this.destinationPath('package.json'), pkg, null, 2);
         }

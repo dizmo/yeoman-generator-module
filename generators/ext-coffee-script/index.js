@@ -40,6 +40,9 @@ module.exports = class extends generator {
                     'coffeescript': '^2.3.1'
                 })
             );
+            if (pkg.devDependencies['eslint']) {
+                delete pkg.devDependencies['eslint'];
+            }
             if (pkg.scripts['lint:fix']) {
                 delete pkg.scripts['lint:fix'];
             }
