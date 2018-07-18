@@ -13,7 +13,10 @@ npm install <%= name %> --save
 ```javascript
 var lib = require('<%= name %>');
 ```
-
+### Examples
+```javascript
+...
+```
 ## Development
 ### Build
 ```sh
@@ -27,7 +30,6 @@ npm run lint
 ```sh
 npm run lint:fix
 ```
-Only supported for JavaScript and TypeScript, but not CoffeeScript modules.
 ### Test
 ```sh
 npm run test
