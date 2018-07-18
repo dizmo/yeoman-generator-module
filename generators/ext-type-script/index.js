@@ -36,7 +36,7 @@ module.exports = class extends generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'tslint': '^5.10.0',
+                    'tslint': '^5.11.0',
                     'typescript': '^2.9.2'
                 })
             );
