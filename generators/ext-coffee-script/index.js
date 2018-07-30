@@ -43,9 +43,6 @@ module.exports = class extends generator {
             if (pkg.devDependencies['eslint']) {
                 delete pkg.devDependencies['eslint'];
             }
-            if (pkg.scripts['lint:fix']) {
-                delete pkg.scripts['lint:fix'];
-            }
             this.fs.writeJSON(
                 this.destinationPath('package.json'), pkg, null, 2);
         }

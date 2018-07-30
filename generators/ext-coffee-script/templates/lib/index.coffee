@@ -13,6 +13,6 @@ export id = () ->
     return undefined
   if arguments.length == 1
     return arguments[0]
-  return Array.prototype.slice.call(arguments);
+  return Array.prototype.slice.call(arguments)
 
 export default id

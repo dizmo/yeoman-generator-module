@@ -309,7 +309,7 @@ module.exports = class extends generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^5.1.0'
+                    'eslint': '^5.2.0'
                })
             );
             pkg.scripts = sort(
@@ -317,7 +317,6 @@ module.exports = class extends generator {
                     'build': 'node ./cli/run-build.js',
                     'cover': 'node ./cli/run-cover.js',
                     'lint': 'node ./cli/run-lint.js',
-                    'lint:fix': 'node ./cli/run-lint-fix.js',
                     'test': 'node ./cli/run-test.js'
                 })
             );
@@ -342,6 +341,9 @@ module.exports = class extends generator {
                 this.destinationPath('README.md'), this.properties);
         }
         if (!upgrade) {
+            this.fs.copy(
+                this.templatePath('.npmrc'),
+                this.destinationPath('.npmrc'));
             this.fs.copy(
                 this.templatePath('.travis.yml'),
                 this.destinationPath('.travis.yml'));
