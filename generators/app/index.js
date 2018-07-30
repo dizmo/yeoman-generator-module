@@ -342,9 +342,6 @@ module.exports = class extends generator {
         }
         if (!upgrade) {
             this.fs.copy(
-                this.templatePath('.npmrc'),
-                this.destinationPath('.npmrc'));
-            this.fs.copy(
                 this.templatePath('.travis.yml'),
                 this.destinationPath('.travis.yml'));
             this.fs.copy(
