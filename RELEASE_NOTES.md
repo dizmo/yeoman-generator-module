@@ -10,6 +10,8 @@
 
 * Supports *building*, *linting*, *testing*, *continuous integration* and *coverage checks* for all three languages.
 
+* Support for *building* without linting, *linting* with auto-fixing, *testing* and *coverage checks* without re-building.
+
 [Babel.js]: http://babeljs.io
 [CoffeeScript]: http://coffeescript.org
 [JavaScript]: https://www.ecma-international.org
