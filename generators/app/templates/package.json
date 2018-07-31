@@ -10,14 +10,14 @@
   "devDependencies": {
   },
   "files": [
-    "dist"
+    "dist/lib"
   ],
   "keywords": [
     "library",
     "module"
   ],
   "license": "ISC",
-  "main": "dist/index.js",
+  "main": "dist/lib/index.js",
   "name": "<%= name %>",
   "repository": {
     "type": "git",
@@ -25,6 +25,5 @@
   },
   "scripts": {
   },
-  "types": "dist/index.d.ts",
   "version": "1.0.0"
 }

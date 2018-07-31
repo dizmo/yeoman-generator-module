@@ -28,7 +28,7 @@ function npm_lint(code) {
     if (code === 0 && argv('lint') === true) {
         ps.spawn('npm', [
             'run-script', '--', 'lint'
-        ].concat(process.argv.slice(2)), {
+        ], {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
             npx_babel(code);
@@ -39,17 +39,28 @@ function npm_lint(code) {
 }
 
 function npx_babel(code) {
+    let babel = function (source, target) {
+        return [
+            'babel', source, '-d', target, '--presets=env', '-s'
+        ];
+    };
     if (code === 0) {
-        ps.spawn('npx', [
-            'babel', 'lib', '-d', 'dist', '--presets=env', '-s'
-        ].concat(process.argv.slice(2)), {
+        ps.spawn('npx', babel('lib', 'dist/lib'), {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
-            process.exit(code);
+            if (code === 0) {
+                ps.spawn('npx', babel('test', 'dist/test'), {
+                    shell: true, stdio: 'inherit'
+                }).on('exit', function (code) {
+                    process.exit(code);
+                });
+            } else {
+                process.exit(code);
+            }
         });
     } else {
         process.exit(code);
     }
-};
+}
 
 fs.access('./node_modules', npm_install);

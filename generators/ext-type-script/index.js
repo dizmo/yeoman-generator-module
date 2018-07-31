@@ -34,22 +34,30 @@ module.exports = class extends generator {
             let pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
             );
+            if (pkg.types === undefined) {
+                pkg.types = 'dist/lib/index.d.ts';
+            }
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
+                    '@types/chai': '^4.1.4',
+                    '@types/mocha': '^5.2.5',
                     'tslint': '^5.11.0',
-                    'typescript': '^2.9.2'
+                    'typescript': '^3.0.1'
                 })
             );
             if (pkg.devDependencies['eslint']) {
                 delete pkg.devDependencies['eslint'];
             }
             this.fs.writeJSON(
-                this.destinationPath('package.json'), pkg, null, 2);
+                this.destinationPath('package.json'), sort(pkg), null, 2);
         }
         if (!upgrade) {
             this.fs.copy(
                 this.templatePath('lib/'),
                 this.destinationPath('lib/'));
+            this.fs.copy(
+                this.templatePath('test/'),
+                this.destinationPath('test/'));
         }
         if (!upgrade) {
             this.fs.copy(
@@ -65,6 +73,8 @@ module.exports = class extends generator {
     end() {
         rimraf.sync(
             this.destinationPath('.eslintrc.json'));
+        rimraf.sync(
+            this.destinationPath('test/test.js'));
         rimraf.sync(
             this.destinationPath('lib/index.js'));
     }

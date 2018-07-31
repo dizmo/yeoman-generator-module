@@ -41,9 +41,9 @@ npm run lint
 ```
 #### with fixes:
 ```sh
-npm run lint:fix
+npm run -- lint --fix
 ```
-Only supported for JavaScript and TypeScript, but not CoffeeScript modules.
+Supported for JavaScript and TypeScript, but not CoffeeScript modules.
 ### Test
 ```sh
 npm run test

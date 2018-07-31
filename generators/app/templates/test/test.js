@@ -1,19 +1,12 @@
+/* eslint-env node, mocha */
+
 'use strict';
 let expect = require('chai').expect;
-let index = require('../dist/index.js');
-
-describe('index', () => {
-    it('should exist', () => {
-        expect(index).to.exist;
-    });
-    it('should export a default', () => {
-        expect(index.default).to.exist;
-    });
-});
+let index = require('../lib/index.js');
 
 describe('index.id', () => {
     it('should exist', () => {
-        expect(index.id).to.exist;
+        expect(index).to.not.be.an('undefined');
     });
     it('should be a function', () => {
         expect(index.id).to.be.a('function');

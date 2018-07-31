@@ -28,7 +28,7 @@ function npm_lint(code) {
     if (code === 0 && argv('lint') === true) {
         ps.spawn('npm', [
             'run-script', '--', 'lint'
-        ].concat(process.argv.slice(2)), {
+        ], {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
             npx_coffee(code);
@@ -39,13 +39,24 @@ function npm_lint(code) {
 }
 
 function npx_coffee(code) {
+    let coffee = function (source, target) {
+        return [
+            'coffee', '--no-header', '--bare', '--compile', '--output'
+        ].concat([target, source]);
+    }
     if (code === 0) {
-        ps.spawn('npx', [
-            'coffee', '--no-header', '--bare', '--compile', '-o', 'dist', 'lib'
-        ].concat(process.argv.slice(2)), {
+        ps.spawn('npx', coffee('lib', 'dist/lib'), {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
-            npx_babel(code);
+            if (code === 0) {
+                ps.spawn('npx', coffee('test', 'dist/test'), {
+                    shell: true, stdio: 'inherit'
+                }).on('exit', function (code) {
+                    npx_babel(code);
+                });
+            } else {
+                npx_babel(code);
+            }
         });
     } else {
         npx_babel(code);
@@ -56,7 +67,7 @@ function npx_babel(code) {
     if (code === 0) {
         ps.spawn('npx', [
             'babel', 'dist', '-d', 'dist', '--presets=env', '-s'
-        ].concat(process.argv.slice(2)), {
+        ], {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
             process.exit(code);

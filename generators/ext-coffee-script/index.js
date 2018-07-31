@@ -44,12 +44,15 @@ module.exports = class extends generator {
                 delete pkg.devDependencies['eslint'];
             }
             this.fs.writeJSON(
-                this.destinationPath('package.json'), pkg, null, 2);
+                this.destinationPath('package.json'), sort(pkg), null, 2);
         }
         if (!upgrade) {
             this.fs.copy(
                 this.templatePath('lib/'),
                 this.destinationPath('lib/'));
+            this.fs.copy(
+                this.templatePath('test/'),
+                this.destinationPath('test/'));
         }
         if (!upgrade) {
             this.fs.copy(
@@ -61,9 +64,9 @@ module.exports = class extends generator {
 
     end() {
         rimraf.sync(
-            this.destinationPath('cli/run-lint-fix.js'));
-        rimraf.sync(
             this.destinationPath('.eslintrc.json'));
+        rimraf.sync(
+            this.destinationPath('test/test.js'));
         rimraf.sync(
             this.destinationPath('lib/index.js'));
     }

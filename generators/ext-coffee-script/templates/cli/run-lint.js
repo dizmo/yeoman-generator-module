@@ -6,18 +6,21 @@ function npm_install(flag) {
         ps.spawn('npm', ['install'], {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
-            npx_eslint(code);
+            npx_coffeelint(code);
         });
     } else {
-        npx_eslint(0);
+        npx_coffeelint(0);
     }
 }
 
-function npx_eslint(code) {
+function npx_coffeelint(code) {
+    let lint = function (sources) {
+        return [
+            'coffeelint', '--file', 'coffeelint.json', '--quiet'
+        ].concat(sources, process.argv.slice(2));
+    };
     if (code === 0) {
-        ps.spawn('npx', [
-            'coffeelint', '--file', 'coffeelint.json', '--quiet', 'lib/*.coffee'
-        ].concat(process.argv.slice(2)), {
+        ps.spawn('npx', lint(['lib/*.coffee', 'test/*.coffee']), {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
             process.exit(code);

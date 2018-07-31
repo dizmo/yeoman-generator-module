@@ -315,13 +315,13 @@ module.exports = class extends generator {
             pkg.scripts = sort(
                 lodash.assign(pkg.scripts, {
                     'build': 'node ./cli/run-build.js',
-                    'cover': 'node ./cli/run-cover.js',
+                    'cover': 'node ./cli/run-test.js --cover',
                     'lint': 'node ./cli/run-lint.js',
                     'test': 'node ./cli/run-test.js'
                 })
             );
             this.fs.writeJSON(
-                this.destinationPath('package.json'), pkg, null, 2);
+                this.destinationPath('package.json'), sort(pkg), null, 2);
         }
         if (!upgrade) {
             this.fs.copy(

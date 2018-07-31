@@ -14,10 +14,13 @@ function npm_install(flag) {
 }
 
 function npx_eslint(code) {
+    let lint = function (sources) {
+        return [
+            'eslint', '--config', '.eslintrc.json'
+        ].concat(sources, process.argv.slice(2));
+    }
     if (code === 0) {
-        ps.spawn('npx', [
-            'eslint', '--config', '.eslintrc.json', "'lib/**/*.js'"
-        ].concat(process.argv.slice(2)), {
+        ps.spawn('npx', lint(["'lib/**/*.js'", "'test/**/*.js'"]), {
             shell: true, stdio: 'inherit'
         }).on('exit', function (code) {
             process.exit(code);
