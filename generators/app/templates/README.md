@@ -12,7 +12,7 @@ npm install <%= name %> --save
 ```
 ### Require
 ```javascript
-var lib = require('<%= name %>');
+let lib = require('<%= name %>');
 ```
 ### Examples
 ```javascript
