@@ -1,33 +1,30 @@
-let ps = require('child_process'),
+let cp = require('child_process'),
+    ps = require('process'),
     fs = require('fs');
 
-function npm_install(flag) {
+function run(cmd, ...args) {
+    return new Promise((res, rej) => cp.spawn(cmd, args, {
+        shell: true, stdio: 'inherit'
+    }).on('exit', (code) =>
+        code === 0 ? res(code) : rej(code)
+    ));
+};
+function run_install(flag) {
     if (flag) {
-        ps.spawn('npm', ['install'], {
-            shell: true, stdio: 'inherit'
-        }).on('exit', function (code) {
-            npx_coffeelint(code);
-        });
+        run('npm', 'install')
+            .then(run_lint).catch(ps.exit);
     } else {
-        npx_coffeelint(0);
+        run_lint();
     }
 }
-
-function npx_coffeelint(code) {
-    let lint = function (sources) {
-        return [
-            'coffeelint', '--file', 'coffeelint.json', '--quiet'
-        ].concat(sources, process.argv.slice(2));
-    };
-    if (code === 0) {
-        ps.spawn('npx', lint(['lib/*.coffee', 'test/*.coffee']), {
-            shell: true, stdio: 'inherit'
-        }).on('exit', function (code) {
-            process.exit(code);
-        });
-    } else {
-        process.exit(code);
-    }
+function run_lint() {
+    let lint = (...args) => [
+        'coffeelint', '--file', 'coffeelint.json', '--quiet'
+    ].concat(
+        args, process.argv.slice(2)
+    );
+    run('npx', ...lint('lib/*.coffee', 'test/*.coffee'))
+        .then(ps.exit).catch(ps.exit);
 }
 
-fs.access('./node_modules', npm_install);
+fs.access('./node_modules', run_install);
