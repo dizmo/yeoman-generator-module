@@ -29,7 +29,7 @@ function run_lint() {
             .then(run_tsc).catch(ps.exit);
     }
 }
-function run_tsc(code) {
+function run_tsc() {
     run('npx', 'tsc').then(run_babel).catch(ps.exit);
 }
 function run_babel() {
