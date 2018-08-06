@@ -21,6 +21,7 @@
     "pump": "^3.0.0"
   },
   "files": [
+    "generators/app",
     "generators/ext-coffee-script",
     "generators/ext-type-script"
   ],
