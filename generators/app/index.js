@@ -309,8 +309,8 @@ module.exports = class extends generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^5.2.0'
-               })
+                    'eslint': '^5.3.0'
+                })
             );
             pkg.scripts = sort(
                 lodash.assign(pkg.scripts, {
