@@ -351,11 +351,11 @@ module.exports = class extends generator {
         if (!upgrade || upgrade) {
             if (this.options.git || fs.existsSync('.gitignore')) {
                 this.fs.copy(
-                    this.templatePath('.npmignore'),
+                    this.templatePath('_npmignore'),
                     this.destinationPath('.gitignore'));
             } else {
                 this.fs.copy(
-                    this.templatePath('.npmignore'),
+                    this.templatePath('_npmignore'),
                     this.destinationPath('.npmignore'));
             }
         }
