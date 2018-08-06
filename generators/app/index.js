@@ -281,7 +281,7 @@ module.exports = class extends generator {
             this.options.upgrade && fs.existsSync('package.json'));
         if (!upgrade) {
             this.fs.copyTpl(
-                this.templatePath('package.json'),
+                this.templatePath('_package.json'),
                 this.destinationPath('package.json'), this.properties);
         }
         if (!upgrade || upgrade) {
