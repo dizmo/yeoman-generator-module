@@ -13,6 +13,13 @@
     "yosay": "^2.0.2"
   },
   "description": "Module generator",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-eslint": "^5.0.0",
+    "gulp-exclude-gitignore": "^1.2.0",
+    "gulp-nsp": "^3.0.1",
+    "pump": "^3.0.0"
+  },
   "files": [
     "generators/app",
     "generators/ext-coffee-script",
@@ -35,6 +42,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dizmo/yeoman-generator-module"
+  },
+  "scripts": {
+    "prepare": "gulp prepare"
   },
   "version": "1.1.4"
 }
