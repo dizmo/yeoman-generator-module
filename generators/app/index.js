@@ -342,10 +342,10 @@ module.exports = class extends generator {
         }
         if (!upgrade) {
             this.fs.copy(
-                this.templatePath('.travis.yml'),
+                this.templatePath('_travis.yml'),
                 this.destinationPath('.travis.yml'));
             this.fs.copy(
-                this.templatePath('.eslintrc.json'),
+                this.templatePath('_eslintrc.json'),
                 this.destinationPath('.eslintrc.json'));
         }
         if (!upgrade || upgrade) {
