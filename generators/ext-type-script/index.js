@@ -1,7 +1,6 @@
 'use strict';
 
-let chalk = require('chalk'),
-    fs = require('fs'),
+let fs = require('fs'),
     generator = require('yeoman-generator'),
     lodash = require('lodash'),
     rimraf = require('rimraf');

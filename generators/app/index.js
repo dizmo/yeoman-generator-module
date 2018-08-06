@@ -125,7 +125,7 @@ module.exports = class extends generator {
             type: 'input',
             name: 'description',
             message: 'Describe it:',
-            default: function (prop) {
+            default: function () {
                 if (pkg && pkg.description) {
                     return pkg.description;
                 }
