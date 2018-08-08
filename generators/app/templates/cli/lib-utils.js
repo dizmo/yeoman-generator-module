@@ -21,6 +21,7 @@ function run(cmd, ...args) {
         code === 0 ? res(code) : rej(code)
     ));
 }
+
 module.exports = {
     arg: arg, install: install, run: run
 };
