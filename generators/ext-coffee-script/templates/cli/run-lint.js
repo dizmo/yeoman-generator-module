@@ -3,13 +3,13 @@ const { exit } = require('process');
 
 function run_lint() {
     const lint = (...args) => [
-        'coffeelint', '--file', 'coffeelint.json', '--quiet'
+        './node_modules/coffeelint/bin/coffeelint', '--file', 'coffeelint.json', '--quiet'
     ].concat(
         args, process.argv.slice(2)
     );
     return Promise.all([
-        run('npx', ...lint('lib')),
-        run('npx', ...lint('test'))
+        run('node', ...lint('lib')),
+        run('node', ...lint('test'))
     ]);
 }
 

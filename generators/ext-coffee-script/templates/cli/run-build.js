@@ -6,15 +6,15 @@ function run_lint() {
 }
 function run_build() {
     let build = (...args) => [
-        'coffee', '--no-header', '--bare', '--compile'
+        './node_modules/coffeescript/bin/coffee', '--no-header', '--bare', '--compile'
     ].concat(args);
     return Promise.all([
-        run('npx', ...build('--output', 'dist/lib', 'lib')),
-        run('npx', ...build('--output', 'dist/test', 'test'))
+        run('node', ...build('--output', 'dist/lib', 'lib')),
+        run('node', ...build('--output', 'dist/test', 'test'))
     ]);
 }
 function run_babel() {
-    return run('npx', 'babel', '--presets=env', '-qsd', 'dist', 'dist');
+    return run('node', './node_modules/babel-cli/bin/babel', '--presets=env', '-qsd', 'dist', 'dist');
 }
 
 install('./node_modules')

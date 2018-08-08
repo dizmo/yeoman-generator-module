@@ -7,7 +7,8 @@ function run_build() {
         : null;
 }
 function run_mocha() {
-    return run('npx', arg('cover', 'nyc'), 'mocha', 'dist/test');
+    return run('node', arg('cover', './node_modules/nyc/bin/nyc'), 
+        './node_modules/mocha/bin/mocha', 'dist/test');
 }
 
 install('./node_modules')

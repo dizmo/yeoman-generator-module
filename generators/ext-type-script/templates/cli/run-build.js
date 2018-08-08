@@ -5,10 +5,10 @@ function run_lint() {
     return arg('lint') ? run('npm', 'run', 'lint') : null;
 }
 function run_build() {
-    return run('npx', 'tsc');
+    return run('node', './node_modules/typescript/bin/tsc');
 }
 function run_babel() {
-    return run('npx', 'babel', '--presets=env', '-qsd', 'dist', 'dist');
+    return run('node', './node_modules/babel-cli/bin/babel', '--presets=env', '-qsd', 'dist', 'dist');
 }
 
 install('./node_modules')
