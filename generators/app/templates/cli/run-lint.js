@@ -1,4 +1,4 @@
-const { install, run } = require('./run-util');
+const { install, run } = require('./lib-utils');
 const { exit } = require('process');
 
 function run_lint() {

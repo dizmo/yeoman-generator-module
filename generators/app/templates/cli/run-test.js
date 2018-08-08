@@ -1,4 +1,4 @@
-const { arg, install, run } = require('./run-util');
+const { arg, install, run } = require('./lib-utils');
 const { exit } = require('process');
 
 function run_build() {
