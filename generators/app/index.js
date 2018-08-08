@@ -304,7 +304,8 @@ module.exports = class extends generator {
                     'chai': '^4.1.2',
                     'coveralls': '^3.0.2',
                     'istanbul': '^0.4.5',
-                    'mocha': '^5.2.0'
+                    'mocha': '^5.2.0',
+                    'nyc': '^12.0.2'
                })
             );
             pkg.devDependencies = sort(

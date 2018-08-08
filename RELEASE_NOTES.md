@@ -12,6 +12,8 @@
 
 * Support for *building* without linting, *linting* with auto-fixing, *testing* and *coverage checks* without re-building.
 
+* Support for Windows: Eliminated problematic usage of the `npx` execution helper.
+
 [Babel.js]: http://babeljs.io
 [CoffeeScript]: http://coffeescript.org
 [JavaScript]: https://www.ecma-international.org

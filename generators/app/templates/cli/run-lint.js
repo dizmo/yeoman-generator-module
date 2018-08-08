@@ -19,11 +19,11 @@ function run_install(flag) {
 }
 function run_lint() {
     let lint = (...args) => [
-        'eslint', '--config', '.eslintrc.json'
+        './node_modules/eslint/bin/eslint.js', '--config', '.eslintrc.json'
     ].concat(
         args, ps.argv.slice(2) // e.g. `--fix`!
     );
-    run('npx', ...lint("'lib/**/*.js'", "'test/**/*.js'"))
+    run('node', ...lint('"lib/**/*.js"', '"test/**/*.js"'))
         .then(ps.exit).catch(ps.exit);
 }
 

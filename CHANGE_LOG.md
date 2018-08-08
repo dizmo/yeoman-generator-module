@@ -6,6 +6,8 @@
 
 * Support for native testing for [CoffeeScript] and [TypeScript] projects.
 
+* Support for Windows: Eliminated problematic usage of the `npx` execution helper.
+
 ## v1.0.z
 
 * [Node.js] module generator (based on [Yeoman]) with support for [JavaScript], [CoffeeScript], and [TypeScript] (plus [Babel.js]).

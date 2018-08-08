@@ -33,11 +33,11 @@ function run_lint() {
 }
 function run_babel() {
     let babel = (...args) => [
-        'babel', '--presets=env', '--quiet', '-s', '-d'
+        './node_modules/babel-cli/bin/babel.js', '--presets=env', '--quiet'
     ].concat(args);
     Promise.all([
-        run('npx', ...babel('dist/lib', 'lib')),
-        run('npx', ...babel('dist/test', 'test'))
+        run('node', ...babel('-s', '-d', 'dist/lib', 'lib')),
+        run('node', ...babel('-s', '-d', 'dist/test', 'test'))
     ]).then(ps.exit).catch(ps.exit);
 }
 

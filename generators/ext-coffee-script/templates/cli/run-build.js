@@ -33,18 +33,18 @@ function run_lint() {
 }
 function run_coffee() {
     let coffee = (...args) => [
-        'coffee', '--no-header', '--bare', '--compile', '--output'
+        './node_modules/coffeescript/bin/coffee', '--no-header', '--bare'
     ].concat(args);
     Promise.all([
-        run('npx', ...coffee('dist/lib', 'lib')),
-        run('npx', ...coffee('dist/test', 'test'))
+        run('node', ...coffee('--compile', '--output', 'dist/lib', 'lib')),
+        run('node', ...coffee('--compile', '--output', 'dist/test', 'test'))
     ]).then(run_babel).catch(ps.exit);
 }
 function run_babel() {
     let babel = (...args) => [
-        'babel', '--presets=env', '--quiet', '-s', '-d'
+        './node_modules/babel-cli/bin/babel.js', '--presets=env', '--quiet'
     ].concat(args);
-    run('npx', ...babel('dist', 'dist'))
+    run('node', ...babel('-s', '-d', 'dist', 'dist'))
         .then(ps.exit).catch(ps.exit);
 }
 

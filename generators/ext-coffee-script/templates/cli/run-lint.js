@@ -19,12 +19,14 @@ function run_install(flag) {
 }
 function run_lint() {
     let lint = (...args) => [
-        'coffeelint', '--file', 'coffeelint.json', '--quiet'
+        './node_modules/coffeelint/bin/coffeelint', '--file', 'coffeelint.json'
     ].concat(
         args, process.argv.slice(2)
     );
-    run('npx', ...lint('lib/*.coffee', 'test/*.coffee'))
-        .then(ps.exit).catch(ps.exit);
+    Promise.all([
+        run('node', ...lint('--quiet', 'lib')),
+        run('node', ...lint('--quiet', 'test'))
+    ]).then(ps.exit).catch(ps.exit);
 }
 
 fs.access('./node_modules', run_install);
