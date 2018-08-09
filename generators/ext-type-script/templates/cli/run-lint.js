@@ -3,13 +3,13 @@ const { exit } = require('process');
 
 function run_lint() {
     const lint = (...args) => [
-        'tslint', '--config', 'tslint.json'
+        './node_modules/tslint/bin/tslint', '--config', 'tslint.json'
     ].concat(
         args, process.argv.slice(2) // e.g. `--fix`!
     );
     return Promise.all([
-        run('npx', ...lint('"lib/**/*.ts"')),
-        run('npx', ...lint('"test/**/*.ts"'))
+        run('node', ...lint('"lib/**/*.ts"')),
+        run('node', ...lint('"test/**/*.ts"'))
     ]);
 }
 
