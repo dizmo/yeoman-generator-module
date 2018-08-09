@@ -364,13 +364,21 @@ module.exports = class extends generator {
     }
 
     end() {
-        if (this.options['coffeescript']) {
+        let pkg = this.fs.readJSON(
+            this.destinationPath('package.json'));
+
+        if (!this.options['typescript'] && this.options.upgrade && pkg.devDependencies['coffeescript'] ||
+            !this.options['typescript'] && this.options['coffeescript']
+        ) {
             this.composeWith('@dizmo/module:ext-coffee-script', lodash.assign(
                 this.options, {
                     args: this.args, force: this.properties.initial
                 }
             ));
-        } else if (this.options['typescript']) {
+        } else if (
+            !this.options['coffeescript'] && this.options.upgrade && pkg.devDependencies['typescript'] ||
+            !this.options['coffeescript'] && this.options['typescript']
+        ) {
             this.composeWith('@dizmo/module:ext-type-script', lodash.assign(
                 this.options, {
                     args: this.args, force: this.properties.initial
@@ -380,6 +388,7 @@ module.exports = class extends generator {
             this.log(
                 `\nSetting the project root at: ${this.destinationPath()}`);
         }
+
         this._rim();
         this._git();
     }
