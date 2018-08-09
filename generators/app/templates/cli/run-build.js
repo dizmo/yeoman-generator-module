@@ -6,11 +6,11 @@ function run_lint() {
 }
 function run_babel() {
     let babel = (...args) => [
-        './node_modules/babel-cli/bin/babel.js', '--presets=env', '-qs'
+        './node_modules/babel-cli/bin/babel.js', '--presets=env'
     ].concat(args);
     return Promise.all([
-        run('node', ...babel('-d', 'dist/lib', 'lib')),
-        run('node', ...babel('-d', 'dist/test', 'test'))
+        run('node', ...babel('-qsd', 'dist/lib', 'lib')),
+        run('node', ...babel('-qsd', 'dist/test', 'test'))
     ]);
 }
 
