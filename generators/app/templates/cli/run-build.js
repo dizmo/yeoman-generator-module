@@ -5,7 +5,7 @@ function run_lint() {
     return arg('lint') ? run('npm', 'run', 'lint') : null;
 }
 function run_babel() {
-    let babel = (...args) => [
+    const babel = (...args) => [
         './node_modules/babel-cli/bin/babel.js', '--presets=env'
     ].concat(args);
     return Promise.all([

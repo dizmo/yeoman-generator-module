@@ -8,7 +8,10 @@ function run_build() {
     return run('node', './node_modules/typescript/bin/tsc');
 }
 function run_babel() {
-    return run('node', './node_modules/babel-cli/bin/babel', '--presets=env', '-qsd', 'dist', 'dist');
+    const babel = (...args) => [
+        './node_modules/babel-cli/bin/babel.js', '--presets=env'
+    ].concat(args);
+    return run('node', ...babel('-qsd', 'dist', 'dist'));
 }
 
 install('./node_modules')

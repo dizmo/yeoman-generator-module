@@ -5,7 +5,7 @@ function run_lint() {
     return arg('lint') ? run('npm', 'run', 'lint') : null;
 }
 function run_build() {
-    let build = (...args) => [
+    const build = (...args) => [
         './node_modules/coffeescript/bin/coffee', '--no-header', '--bare', '--compile'
     ].concat(args);
     return Promise.all([
@@ -14,7 +14,10 @@ function run_build() {
     ]);
 }
 function run_babel() {
-    return run('node', './node_modules/babel-cli/bin/babel', '--presets=env', '-qsd', 'dist', 'dist');
+    const babel = (...args) => [
+        './node_modules/babel-cli/bin/babel.js', '--presets=env'
+    ].concat(args);
+    return run('node', ...babel('-qsd', 'dist', 'dist'));
 }
 
 install('./node_modules')
