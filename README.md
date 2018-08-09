@@ -22,12 +22,12 @@ yo @dizmo/module --help
 
 ## Generate
 ```sh
-yo @dizmo/module [--typescript|--coffeescript] [--git]
+yo @dizmo/module [--git] [--typescript|--coffeescript]
 ```
 
 ## Upgrade
 ```sh
-yo @dizmo/module [--typescript|--coffeescript] --upgrade
+yo @dizmo/module --upgrade
 ```
 
 ## Development

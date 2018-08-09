@@ -1,5 +1,11 @@
 # CHANGE LOG
 
+## v1.2.z
+
+* Optional `--typescript` and `--coffeescript` flags on `--upgrade`:
+
+    When upgrading a TypeScript or CoffeeScript project a simple `yo @dizmo/module --upgrade` is enough. The auto-detection is achieved by checking in `package.json:devDependencies` the `typescript` or `coffeescript` entries.
+
 ## v1.1.z
 
 * Support for *building* without linting, *linting* with auto-fixing, *testing* and *coverage checks* without re-building.

@@ -6,13 +6,15 @@
 
 * [Node.js] module generator (based on [Yeoman]) with support for [JavaScript], [TypeScript], and [CoffeeScript] (plus [Babel.js]).
 
+* Support for Windows: Eliminated problematic usage of the `npx` execution helper.
+
 ### NOTABLE CHANGES
 
 * Supports *building*, *linting*, *testing*, *continuous integration* and *coverage checks* for all three languages.
 
 * Support for *building* without linting, *linting* with auto-fixing, *testing* and *coverage checks* without re-building.
 
-* Support for Windows: Eliminated problematic usage of the `npx` execution helper.
+* Support for *optional* `--typescript` and `--coffeescript` flags after `yo @dizmo/dizmo --upgrade`.
 
 [Babel.js]: http://babeljs.io
 [CoffeeScript]: http://coffeescript.org
