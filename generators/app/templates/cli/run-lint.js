@@ -1,17 +1,16 @@
-const { install, run } = require('./lib-utils');
+const { arg, bin, npm, run } = require('./lib-utils');
 const { exit } = require('process');
 
 function run_lint() {
-    const lint = (...args) => [
-        './node_modules/eslint/bin/eslint', '--config', '.eslintrc.json'
-    ].concat(
-        args, process.argv.slice(2) // e.g. `--fix`!
-    );
-    return Promise.all([
-        run('node', ...lint('"lib/**/*.js"')),
-        run('node', ...lint('"test/**/*.js"'))
-    ]);
+    return run('node', ...eslint('"lib/**/*.js"', '"test/**/*.js"'));
 }
+const eslint = (...args) => [
+    bin('eslint'), '--config', '.eslintrc.json'
+].concat(args, arg('fix', '--fix'));
 
-install('./node_modules')
-    .then(run_lint).catch(exit);
+if (require.main === module) {
+    npm('install').then(run_lint).catch(exit);
+}
+module.exports = {
+    run_lint: run_lint
+};

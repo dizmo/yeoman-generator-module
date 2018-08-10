@@ -1,17 +1,19 @@
-const { install, run } = require('./lib-utils');
+const { bin, npm, run } = require('./lib-utils');
 const { exit } = require('process');
 
 function run_lint() {
-    const lint = (...args) => [
-        './node_modules/coffeelint/bin/coffeelint', '--file', 'coffeelint.json', '--quiet'
-    ].concat(
-        args, process.argv.slice(2)
-    );
     return Promise.all([
-        run('node', ...lint('lib')),
-        run('node', ...lint('test'))
+        run('node', ...coffeelint('lib')),
+        run('node', ...coffeelint('test'))
     ]);
 }
+const coffeelint = (...args) => [
+    bin('coffeelint'), '--file', 'coffeelint.json', '--quiet'
+].concat(args);
 
-install('./node_modules')
-    .then(run_lint).catch(exit);
+if (require.main === module) {
+    npm('install').then(run_lint).catch(exit);
+}
+module.exports = {
+    run_lint: run_lint
+};
