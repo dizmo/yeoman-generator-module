@@ -1,5 +1,13 @@
 # CHANGE LOG
 
+## v2.0.z
+
+* Refactored the `run-{lint, build, test}` CLI scripts:
+
+    So far the CLI scripts where making re-use of each other via `npm run-script`, which worked fine but was relatively slow due to the indirect invocation. Now, the scripts make directly use of each other's functionality.
+
+    The result of this refactoring is also, that the `--no-lint` and `--no-build` command line flags became completely independent of each other, while before there was an undesirable interdependence.
+
 ## v1.2.z
 
 * Optional `--typescript` and `--coffeescript` flags on `--upgrade`:

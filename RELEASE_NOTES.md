@@ -1,5 +1,13 @@
 # RELEASE NOTES
 
+## v2.y.z
+
+### MAJOR CHANGES
+
+* Refactored the `run-{lint, build, test}` CLI scripts:
+
+    As a result of this refactoring the `--no-lint` and `--no-build` command line flags became completely independent of each other, while before there was an undesirable interdependence.
+
 ## v1.y.z
 
 ### MAJOR CHANGES
