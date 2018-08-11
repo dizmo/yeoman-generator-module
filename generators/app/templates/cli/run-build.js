@@ -9,6 +9,6 @@ if (require.main === module) {
     let p = npm('install').then(() => {
         p = arg('lint') ? p.then(require('./run-lint')) : p;
         p.then(build).catch(exit);
-    }).catch(exit);
+    });
 }
 module.exports = build;

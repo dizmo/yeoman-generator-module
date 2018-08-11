@@ -8,13 +8,9 @@ const arg = (key, lhs, rhs) => {
         .default('build', true)
         .default('cover', false);
     return y.argv[key]
-        ? lhs !== undefined ? lhs: y.argv[key] : rhs;
+        ? lhs !== undefined ? lhs : y.argv[key]
+        : rhs !== undefined ? rhs : y.argv[key];
 };
-const npm = (...args) => promisify(access)
-    ('node_modules').catch(() => run('npm', ...args));
-const npx = (cmd, ...args) => fqn[cmd]
-    ? run('node', fqn[cmd], ...args)
-    : run('npx', '-q', cmd, ...args);
 const run = (cmd, ...args) => new Promise(
     (res, rej) => spawn(cmd, args, {
         shell: true, stdio: 'inherit'
@@ -22,12 +18,10 @@ const run = (cmd, ...args) => new Promise(
         code === 0 ? res(code) : rej(code)
     )
 );
-const fqn = {
-    'babel': 'node_modules/babel-cli/bin/babel.js',
-    'eslint': 'node_modules/eslint/bin/eslint',
-    'mocha': 'node_modules/mocha/bin/mocha',
-    'nyc': 'node_modules/nyc/bin/nyc',
-};
+const npx = (...args) => run('npx', '-q', ...args);
+const npm = (...args) => promisify(access)
+    ('node_modules').catch(() => run('npm', ...args));
+    
 module.exports = {
     arg: arg, npm: npm, npx: npx, run: run
 };
