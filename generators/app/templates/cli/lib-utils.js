@@ -18,6 +18,7 @@ const run = (cmd, ...args) => new Promise(
         code === 0 ? res(code) : rej(code)
     )
 );
+
 const npx = (...args) => run('npx', '-q', ...args);
 const npm = (...args) => promisify(access)
     ('node_modules').catch(() => run('npm', ...args));
