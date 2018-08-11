@@ -24,9 +24,10 @@ const run = (cmd, ...args) => new Promise(
 );
 const fqn = {
     'babel': 'node_modules/babel-cli/bin/babel.js',
-    'eslint': 'node_modules/eslint/bin/eslint',
     'mocha': 'node_modules/mocha/bin/mocha',
     'nyc': 'node_modules/nyc/bin/nyc',
+    'tsc': 'node_modules/typescript/bin/tsc',
+    'tslint': 'node_modules/tslint/bin/tslint',
 };
 module.exports = {
     arg: arg, npm: npm, npx: npx, run: run

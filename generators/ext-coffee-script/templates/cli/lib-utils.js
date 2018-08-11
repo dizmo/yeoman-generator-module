@@ -24,7 +24,8 @@ const run = (cmd, ...args) => new Promise(
 );
 const fqn = {
     'babel': 'node_modules/babel-cli/bin/babel.js',
-    'eslint': 'node_modules/eslint/bin/eslint',
+    'coffee': 'node_modules/coffeescript/bin/coffee',
+    'coffeelint': 'node_modules/coffeelint/bin/coffeelint',
     'mocha': 'node_modules/mocha/bin/mocha',
     'nyc': 'node_modules/nyc/bin/nyc',
 };
