@@ -1,4 +1,4 @@
-const { arg, npm, npx } = require('./lib-utils');
+const { arg, npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const test = cover => !cover
@@ -7,9 +7,9 @@ const test = cover => !cover
 
 if (require.main === module) {
     let p = npm('install').then(() => {
-        p = arg('lint') ? p.then(require('./run-lint')) : p;
-        p = arg('build') ? p.then(require('./run-build')) : p;
-        p.then(test.bind(null, arg('cover'))).catch(exit);
+        p = arg('lint')(true) ? p.then(require('./run-lint')) : p;
+        p = arg('build')(true) ? p.then(require('./run-build')) : p;
+        p.then(test.bind(null, arg('cover')(false))).catch(exit);
     });
 }
 module.exports = test;

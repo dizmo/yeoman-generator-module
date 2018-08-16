@@ -1,4 +1,4 @@
-const { arg, npm, npx } = require('./lib-utils');
+const { arg, npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const lint = () => npx(
