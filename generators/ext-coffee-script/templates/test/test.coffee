@@ -1,6 +1,6 @@
 'use strict'
 expect = require('chai').expect
-index = require('../lib/index.js')
+index = require('../lib')
 
 describe 'index.id', () ->
   it 'should exist', () ->

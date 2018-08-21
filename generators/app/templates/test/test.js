@@ -2,7 +2,7 @@
 
 'use strict';
 let expect = require('chai').expect;
-let index = require('../lib/index.js');
+let index = require('../lib');
 
 describe('index.id', () => {
     it('should exist', () => {

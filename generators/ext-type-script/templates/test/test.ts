@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { id } from "../lib/index";
+import { id } from "../lib";
 
 import "mocha";
 
