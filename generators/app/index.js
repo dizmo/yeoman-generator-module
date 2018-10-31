@@ -301,17 +301,17 @@ module.exports = class extends generator {
                 lodash.assign(pkg.devDependencies, {
                     'babel-cli': '^6.26.0',
                     'babel-preset-env': '^1.7.0',
-                    'chai': '^4.1.2',
+                    'chai': '^4.2.0',
                     'coveralls': '^3.0.2',
                     'istanbul': '^0.4.5',
                     'mocha': '^5.2.0',
-                    'nyc': '^12.0.2',
-                    'yargs': '^12.0.1'
+                    'nyc': '^13.1.0',
+                    'yargs': '^12.0.2'
                })
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^5.3.0'
+                    'eslint': '^5.8.0'
                 })
             );
             pkg.scripts = sort(
