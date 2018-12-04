@@ -41,7 +41,7 @@ module.exports = class extends generator {
                     '@types/chai': '^4.1.7',
                     '@types/mocha': '^5.2.5',
                     'tslint': '^5.11.0',
-                    'typescript': '^3.1.4'
+                    'typescript': '^3.2.1'
                 })
             );
             if (pkg.devDependencies['eslint']) {

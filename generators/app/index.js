@@ -306,7 +306,7 @@ module.exports = class extends generator {
                     'istanbul': '^0.4.5',
                     'mocha': '^5.2.0',
                     'nyc': '^13.1.0',
-                    'yargs': '^12.0.2'
+                    'yargs': '^12.0.5'
                })
             );
             pkg.devDependencies = sort(
