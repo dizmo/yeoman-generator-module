@@ -1,5 +1,11 @@
 # CHANGE LOG
 
+## v2.1.z
+
+* Support UMD modules with `npm run build`:
+
+    So far only standard node modules where produced when invoking `npm run build`. However, to ease migration of older code bases UMD modules have been introduced which are standalone (i.e. browserfied) scripts executable in a browser context.
+
 ## v2.0.z
 
 * Refactored the `run-{lint, build, test}` CLI scripts:

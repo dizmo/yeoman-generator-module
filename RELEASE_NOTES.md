@@ -4,6 +4,12 @@
 
 ### MAJOR CHANGES
 
+* Support UMD modules with `npm run build`:
+
+    So far only standard node modules where produced when invoking `npm run build`. However, to ease migration of older code bases UMD modules have been introduced which are standalone (i.e. browserfied) scripts executable in a browser context.
+
+### NOTABLE CHANGES
+
 * Refactored the `run-{lint, build, test}` CLI scripts:
 
     As a result of this refactoring the `--no-lint` and `--no-build` command line flags became completely independent of each other, while before there was an undesirable interdependence.
