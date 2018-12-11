@@ -6,7 +6,7 @@ const build = () => Promise.all([
     npx('babel', '--presets=env', '-qsd', 'dist/test', 'test')
 ]);
 const browserify = () => Promise.all([
-    npx('browserify', 'dist/lib/index.js', '-ds', 'dcontrol',
+    npx('browserify', 'dist/lib/index.js', '-ds', '<%= name.replace("@", "").replace("/", "-") %>',
         '|', 'exorcist', 'dist/lib/index.umd.js.map',
         '>', 'dist/lib/index.umd.js')
 ]);

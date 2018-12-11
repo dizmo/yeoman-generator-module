@@ -25,9 +25,12 @@ module.exports = class extends generator {
         let upgrade = Boolean(
             this.options.upgrade && fs.existsSync('package.json'));
         if (!upgrade || upgrade) {
-            this.fs.copy(
+            let pkg = this.fs.readJSON(
+                this.destinationPath('package.json')
+            );
+            this.fs.copyTpl(
                 this.templatePath('cli/'),
-                this.destinationPath('cli/'));
+                this.destinationPath('cli/'), pkg);
         }
         if (!upgrade || upgrade) {
             let pkg = this.fs.readJSON(

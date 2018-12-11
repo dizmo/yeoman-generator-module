@@ -285,9 +285,9 @@ module.exports = class extends generator {
                 this.destinationPath('package.json'), this.properties);
         }
         if (!upgrade || upgrade) {
-            this.fs.copy(
+            this.fs.copyTpl(
                 this.templatePath('cli/'),
-                this.destinationPath('cli/'));
+                this.destinationPath('cli/'), this.properties);
         }
         if (!upgrade || upgrade) {
             let pkg = this.fs.readJSON(
