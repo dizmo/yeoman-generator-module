@@ -8,6 +8,10 @@
 
     So far only standard node modules where produced when invoking `npm run build`. However, to ease migration of older code bases UMD modules have been introduced which are standalone (i.e. browserfied) scripts executable in a browser context.
 
+* Optional support UMD modules with `npm run -- build --no-umd`:
+
+    Intoroduced `--no-umd` option to suppress UMD support, since standalone UMD modules can be relatively large compared to regular ones.
+
 ### NOTABLE CHANGES
 
 * Refactored the `run-{lint, build, test}` CLI scripts:

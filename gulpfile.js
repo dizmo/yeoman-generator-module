@@ -1,20 +1,15 @@
 'use strict';
-let path = require('path'),
-    pump = require('pump');
-let gulp = require('gulp'),
-    gulp_eslint = require('gulp-eslint'),
-    gulp_exclude = require('gulp-exclude-gitignore'),
-    gulp_nsp = require('gulp-nsp');
+const pump = require('pump');
+const gulp = require('gulp');
+const gulp_eslint = require('gulp-eslint');
+const gulp_exclude = require('gulp-exclude-gitignore');
 
-let os = require('os');
+const os = require('os');
 if (os.tmpdir) {
     os.tmpDir = os.tmpdir;
 }
 
-gulp.task('prepare', done => { gulp_nsp({
-    package: path.resolve('package.json')
-}, done); });
-
+gulp.task('prepare', done => done());
 gulp.task('default', done => { pump([
     gulp.src('**/*.js'),
     gulp_exclude(),

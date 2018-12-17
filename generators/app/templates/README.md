@@ -40,7 +40,14 @@ npm run build
 npm run -- build --no-lint
 ```
 
+#### without UMD support:
+
+```sh
+npm run -- build --no-umd
+```
+
 ### Lint
+
 ```sh
 npm run lint
 ```
