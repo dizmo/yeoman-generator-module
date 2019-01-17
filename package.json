@@ -5,11 +5,11 @@
     "url": "https://github.com/hsk81"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "lodash": "^4.17.11",
-    "rimraf": "^2.6.2",
+    "rimraf": "^2.6.3",
     "shelljs": "^0.8.3",
-    "yeoman-generator": "^3.1.1",
+    "yeoman-generator": "^3.2.0",
     "yosay": "^2.0.2"
   },
   "description": "dizmoMod: a module generator for JavaScript, CoffeeScript, and TypeScript",
