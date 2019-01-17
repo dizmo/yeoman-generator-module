@@ -282,7 +282,9 @@ module.exports = class extends generator {
         if (!upgrade) {
             this.fs.copyTpl(
                 this.templatePath('_package.json'),
-                this.destinationPath('package.json'), this.properties);
+                this.destinationPath('package.json'), this.properties, {
+                    _: lodash
+                });
         }
         if (!upgrade || upgrade) {
             this.fs.copyTpl(
