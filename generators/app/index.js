@@ -304,17 +304,16 @@ module.exports = class extends generator {
                     'babel-cli': '^6.26.0',
                     'babel-preset-env': '^1.7.0',
                     'chai': '^4.2.0',
-                    'coveralls': '^3.0.2',
+                    'coveralls': '^3.0.3',
                     'exorcist': '^1.0.1',
-                    'istanbul': '^0.4.5',
-                    'mocha': '^5.2.0',
-                    'nyc': '^13.1.0',
+                    'mocha': '^6.0.2',
+                    'nyc': '^13.3.0',
                     'yargs': '^12.0.5'
                })
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^5.8.0'
+                    'eslint': '^5.14.1'
                 })
             );
             pkg.scripts = sort(
