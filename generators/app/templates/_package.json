@@ -4,6 +4,11 @@
     "email": "<%= personEmail %>",
     "url": "<%= personUrl %>"
   },
+  "contributors": [{
+    "name": "<%= personName %>",
+    "email": "<%= personEmail %>",
+    "url": "<%= personUrl %>"
+  }],
   "description": "<%= description %>",
   "dependencies": {
   },
