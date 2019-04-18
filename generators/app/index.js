@@ -306,14 +306,14 @@ module.exports = class extends generator {
                     'chai': '^4.2.0',
                     'coveralls': '^3.0.3',
                     'exorcist': '^1.0.1',
-                    'mocha': '^6.0.2',
-                    'nyc': '^13.3.0',
+                    'mocha': '^6.1.3',
+                    'nyc': '^14.0.0',
                     'yargs': '^12.0.5'
                })
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^5.14.1'
+                    'eslint': '^5.16.0'
                 })
             );
             pkg.scripts = sort(
