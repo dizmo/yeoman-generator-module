@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-* [Node.js] v8.11.3 LTS (or higher); for Linux distribution based packages (`deb` or `rpm`) see also [binary distributions](https://github.com/nodesource/distributions).
+* [Node.js] v10.15.3 LTS (or higher); for Linux distribution based packages (`deb` or `rpm`) see also [binary distributions](https://github.com/nodesource/distributions).
 
 ## Install
 
@@ -50,10 +50,16 @@ npm run build
 npm run -- build --no-lint
 ```
 
-#### without UMD support:
+#### with UMD support (incl. minimization):
 
 ```sh
-npm run -- build --no-umd
+npm run -- build --prepack
+```
+
+#### with UMD support (excl. minimization):
+
+```sh
+npm run -- build --prepack --no-minify
 ```
 
 ### Lint

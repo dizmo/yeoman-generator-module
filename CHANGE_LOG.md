@@ -10,6 +10,10 @@
 
     Introduced `--no-umd` option to suppress UMD support, since standalone UMD modules can be relatively large compared to regular ones.
 
+* Enforced optionality of UMD modules with `npm run -- build [--prepack]`:
+
+    Creating UMD modules is a slow process. Hence `npm run build` does not create UMD modules by default anymore, but `npm run -- build --prepack` does. Further, the created UMD modules are then automatically minified, but which can be suppressed with `npm run -- build --prepack --no-minify`. Also, when running `npm pack` the `prepack` step to generate the UMD files is automatically run (which is also the case for `npm publish`).
+
 ## v2.0.z
 
 * Refactored the `run-{lint, build, test}` CLI scripts:

@@ -321,6 +321,7 @@ module.exports = class extends generator {
                     'build': 'node ./cli/run-build.js',
                     'cover': 'node ./cli/run-test.js --cover',
                     'lint': 'node ./cli/run-lint.js',
+                    'prepack': 'node ./cli/run-prepack.js',
                     'test': 'node ./cli/run-test.js'
                 })
             );

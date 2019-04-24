@@ -8,9 +8,9 @@
 
     So far only standard node modules where produced when invoking `npm run build`. However, to ease migration of older code bases UMD modules have been introduced which are standalone (i.e. browserfied) scripts executable in a browser context.
 
-* Optional support UMD modules with `npm run -- build --no-umd`:
+* Optional support UMD modules with `npm run -- build --prepack`:
 
-    Intoroduced `--no-umd` option to suppress UMD support, since standalone UMD modules can be relatively large compared to regular ones.
+    Introduced `--prepack` option to allow UMD support. Since standalone UMD modules can be relatively large, they are minified automatically (which can be suppressed by appending `--no-minify`).
 
 ### NOTABLE CHANGES
 

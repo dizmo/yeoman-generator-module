@@ -9,7 +9,7 @@ if (require.main === module) {
     let p = npm('install').then(() => {
         p = arg('lint')(true) ? p.then(require('./run-lint')) : p;
         p = p.then(build);
-        p = arg('umd')(true) ? p.then(require('./run-browserify')) : p;
+        p = arg('prepack')(false) ? p.then(require('./run-prepack')) : p;
         p = p.catch(exit);
     });
 }

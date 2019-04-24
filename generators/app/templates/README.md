@@ -40,10 +40,16 @@ npm run build
 npm run -- build --no-lint
 ```
 
-#### without UMD support:
+#### with UMD support (incl. minimization):
 
 ```sh
-npm run -- build --no-umd
+npm run -- build --prepack
+```
+
+#### with UMD support (excl. minimization):
+
+```sh
+npm run -- build --prepack --no-minify
 ```
 
 ### Lint
