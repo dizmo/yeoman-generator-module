@@ -6,17 +6,16 @@ const prepare = () => (
 ).reduce(
     (p, fn) => p.then(fn), Promise.resolve()
 );
-const browserify = () => npx(
-    'browserify', 'dist/lib/index.js', '-ds', '<%= name.replace("@", "").replace("/", "-") %>',
-        '|', 'exorcist', 'dist/lib/index.umd.js.map',
-        '>', 'dist/lib/index.umd.js'
+const browserify = () => npx('browserify', 'dist/lib/index.js',
+    '--debug', '--standalone', '<%= name.replace("@", "").replace("/", "-") %>',
+    '|', 'exorcist', 'dist/lib/index.umd.js.map',
+    '>', 'dist/lib/index.umd.js'
 );
-const terser = () => npx(
-    'terser', 'dist/lib/index.umd.js',
-        '--compress', '--mangle', '--module',
-        '--output', 'dist/lib/index.min.js',
-        '--source-map', 'content="dist/lib/index.umd.js.map"',
-        '--source-map', 'url="index.min.js.map"'
+const terser = () => npx('terser', 'dist/lib/index.umd.js',
+    '--compress', '--mangle', '--module',
+    '--output', 'dist/lib/index.min.js',
+    '--source-map', 'content="dist/lib/index.umd.js.map"',
+    '--source-map', 'url="index.min.js.map"'
 );
 if (require.main === module) {
     npm('install').then(prepare).catch(exit);
