@@ -364,6 +364,14 @@ module.exports = class extends generator {
                     this.destinationPath('.npmignore'));
             }
         }
+        if (!upgrade || upgrade) {
+            this.fs.copy(
+                this.templatePath('dist/_gitignore'),
+                this.destinationPath('dist/.gitignore'));
+            this.fs.copy(
+                    this.templatePath('dist/_npmignore'),
+                    this.destinationPath('dist/.npmignore'));
+        }
         this.conflicter.force = upgrade;
     }
 
