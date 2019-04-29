@@ -5,7 +5,9 @@ const build = () => Promise.all([
     npx('coffee', '--no-header', '-bco', 'dist/lib', 'lib'),
     npx('coffee', '--no-header', '-bco', 'dist/test', 'test')
 ]).then(() =>
-    npx('babel', '--presets=env', '-qsd', 'dist', 'dist')
+    npx('babel', '--presets=env', '--ignore=*.min.js,*.umd.js',
+                 '--source-maps=true', '--quiet',
+                 '--out-dir', 'dist', 'dist')
 );
 if (require.main === module) {
     let p = npm('install').then(() => {
