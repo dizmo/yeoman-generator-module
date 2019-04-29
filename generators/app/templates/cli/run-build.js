@@ -2,8 +2,12 @@ const { arg, npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const build = () => Promise.all([
-    npx('babel', '--presets=env', '-qsd', 'dist/lib', 'lib'),
-    npx('babel', '--presets=env', '-qsd', 'dist/test', 'test')
+    npx('babel', '--presets=env', '--ignore=*.min.js,*.umd.js',
+                 '--source-maps=true', '--quiet',
+                 '--out-dir', 'dist/lib', 'lib'),
+    npx('babel', '--presets=env', '--ignore=*.min.js,*.umd.js',
+                 '--source-maps=true', '--quiet',
+                 '--out-dir', 'dist/test', 'test')
 ]);
 if (require.main === module) {
     let p = npm('install').then(() => {
