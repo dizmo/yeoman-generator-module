@@ -23,7 +23,7 @@
   ],
   "license": "ISC",
   "main": "dist/lib/index.js",
-  "name": "<%= _.kebabCase(name) %>",
+  "name": "<%= name %>",
   "repository": {
     "type": "git",
     "url": ""
