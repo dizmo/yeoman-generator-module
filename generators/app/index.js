@@ -320,6 +320,7 @@ module.exports = class extends generator {
             pkg.scripts = sort(
                 lodash.assign(pkg.scripts, {
                     'build': 'node ./cli/run-build.js',
+                    'clean': 'node ./cli/run-clean.js',
                     'cover': 'node ./cli/run-test.js --cover',
                     'lint': 'node ./cli/run-lint.js',
                     'prepack': 'node ./cli/run-prepack.js',

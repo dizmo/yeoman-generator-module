@@ -1,5 +1,4 @@
-const { access } = require('fs');
-const { promisify } = require('util');
+const { access } = require('fs').promises;
 const { spawn } = require('child_process');
 
 const arg = (key, lhs, rhs) => value => {
@@ -13,12 +12,10 @@ const run = (command, ...args) => new Promise(
         (code === 0 ? resolve : reject)(code)
     )
 );
-
 const npx = (...args) =>
     run('npx', '-q', ...args);
-const npm = (...args) => promisify(access)
-    ('node_modules').catch(() => run('npm', ...args));
-
+const npm = (...args) => access('node_modules')
+    .catch(() => run('npm', ...args));
 module.exports = {
-    arg: arg, npm: npm, npx: npx, run: run
+    arg, npm, npx, run
 };
