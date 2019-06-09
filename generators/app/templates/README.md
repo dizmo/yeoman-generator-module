@@ -28,25 +28,31 @@ const lib = require('<%= name %>');
 
 ## Development
 
+### Clean
+
+```sh
+npm run clean
+```
+
 ### Build
 
 ```sh
 npm run build
 ```
 
-#### without linting:
+#### without linting and cleaning:
 
 ```sh
-npm run -- build --no-lint
+npm run -- build --no-lint --no-clean
 ```
 
-#### with UMD support (incl. minimization):
+#### with UMD bundling (incl. minimization):
 
 ```sh
 npm run -- build --prepack
 ```
 
-#### with UMD support (excl. minimization):
+#### with UMD bundling (excl. minimization):
 
 ```sh
 npm run -- build --prepack --no-minify
@@ -70,10 +76,10 @@ npm run -- lint --fix
 npm run test
 ```
 
-#### without (re-)building:
+#### without linting, cleaning and (re-)building:
 
 ```sh
-npm run -- test --no-build
+npm run -- test --no-lint --no-clean --no-build
 ```
 
 ### Cover
@@ -82,10 +88,10 @@ npm run -- test --no-build
 npm run cover
 ```
 
-#### without (re-)building:
+#### without linting, cleaning and (re-)building:
 
 ```sh
-npm run -- cover --no-build
+npm run -- cover --no-lint --no-clean --no-build
 ```
 
 ## Publish
