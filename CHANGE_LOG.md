@@ -1,10 +1,18 @@
 # CHANGE LOG
 
+## v2.2.z
+
+* Support for `npm run clean`:
+
+    The `./dist` folder by default contains the `.gitignore` and `.npmignore` files, to ensure correct behaviour w.r.t. `npm run -- build --prepack`, i.e. any `./dist/*.umd.js` or `./dist/*.min.js` bundles are *ignored* by GIT, but they are *still* published by NPM.
+
+    To avoid these ignore files being accidentially removed (with e.g. a manual `rm ./dist`), introduced `npm run clean` which cleans the `./dist` directory *except* for these `.gitignore` and `.npmignore` files. Further, `npm run clean` is automatically invoked prior to any `npm run build` (or `npm run test`), where this behaviour can be suppressed with the `--no-clean` flag.
+
 ## v2.1.z
 
 * Support UMD modules with `npm run build`:
 
-    So far only standard node modules were produced when invoking `npm run build`. However, to ease migration of older code bases UMD modules have been introduced, which are standalone (i.e. browserfied) scripts executable in a browser context.
+    So far only standard node modules were produced when invoking `npm run build`. However to ease migration of older code bases UMD modules have been introduced, which are standalone (i.e. browserfied) scripts executable in a browser context.
 
 * Optional support UMD modules with `npm run -- build --no-umd`:
 
