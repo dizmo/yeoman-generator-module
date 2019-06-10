@@ -1,10 +1,10 @@
 const { access } = require('fs').promises;
 const { spawn } = require('child_process');
 
-const arg = (key, lhs, rhs) => value => {
-    const val = require('yargs').default(key, value).argv[key];
-    return val ? lhs !== undefined ? lhs : val : rhs;
-}
+const arg = (key, lhs, rhs) => (fallback, { argv } = require('yargs')) => {
+    const value = argv[key] !== undefined ? argv[key] : fallback;
+    return value ? lhs === undefined ? value : lhs : rhs;
+};
 const run = (command, ...args) => new Promise(
     (resolve, reject) => spawn(command, args, {
         shell: true, stdio: 'inherit'

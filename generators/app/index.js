@@ -309,7 +309,7 @@ module.exports = class extends generator {
                     'exorcist': '^1.0.1',
                     'mocha': '^6.1.4',
                     'nyc': '^14.1.1',
-                    'yargs': '^12.0.5'
+                    'yargs': '^13.2.4'
                })
             );
             pkg.devDependencies = sort(
