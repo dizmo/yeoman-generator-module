@@ -39,7 +39,7 @@ module.exports = class extends generator {
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
                     'coffeelint': '2.1.0',
-                    'coffeescript': '^2.3.2'
+                    'coffeescript': '^2.4.1'
                 })
             );
             if (pkg.devDependencies['eslint']) {

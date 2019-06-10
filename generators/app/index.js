@@ -305,7 +305,7 @@ module.exports = class extends generator {
                     '@babel/core': '^7.4.5',
                     '@babel/preset-env': '^7.4.5',
                     'chai': '^4.2.0',
-                    'coveralls': '^3.0.3',
+                    'coveralls': '^3.0.4',
                     'exorcist': '^1.0.1',
                     'mocha': '^6.1.4',
                     'nyc': '^14.1.1',
