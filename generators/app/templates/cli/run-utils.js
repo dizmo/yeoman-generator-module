@@ -14,8 +14,8 @@ const run = (command, ...args) => new Promise(
 );
 const npx = (...args) =>
     run('npx', '-q', ...args);
-const npm = (...args) => access('node_modules')
-    .catch(() => run('npm', ...args));
+const npm = (...args) =>
+    access('node_modules').catch(() => run('npm', ...args));
 module.exports = {
     arg, npm, npx, run
 };
