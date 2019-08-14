@@ -11,7 +11,7 @@ if (os.tmpdir) {
 
 gulp.task('prepare', done => done());
 gulp.task('default', done => { pump([
-    gulp.src('**/*.js'),
+    gulp.src('**/index.js'),
     gulp_exclude(),
     gulp_eslint(),
     gulp_eslint.format(),
