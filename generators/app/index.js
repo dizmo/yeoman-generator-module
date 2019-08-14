@@ -349,6 +349,11 @@ module.exports = class extends generator {
         }
         if (!upgrade) {
             this.fs.copy(
+                this.templatePath('babel.config.js'),
+                this.destinationPath('babel.config.js'));
+        }
+        if (!upgrade) {
+            this.fs.copy(
                 this.templatePath('_travis.yml'),
                 this.destinationPath('.travis.yml'));
             this.fs.copy(

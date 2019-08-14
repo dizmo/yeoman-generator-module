@@ -2,8 +2,7 @@ const { arg, npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const build = () => npx('tsc').then(() => npx('babel',
-    '--presets=@babel/env', '--ignore=*.min.js,*.umd.js',
-    '--source-maps=true', '--verbose', // '--quiet',
+    '--source-maps=true', '--verbose',
     '--out-dir', 'dist', 'dist')
 );
 if (require.main === module) {

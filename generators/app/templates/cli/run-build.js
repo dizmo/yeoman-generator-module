@@ -2,11 +2,9 @@ const { arg, npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const build = () => Promise.all([
-    npx('babel', '--presets=@babel/env', '--ignore=*.min.js,*.umd.js',
-                 '--source-maps=true', '--verbose', // '--quiet',
+    npx('babel', '--source-maps=true', '--verbose',
                  '--out-dir', 'dist/lib', 'lib'),
-    npx('babel', '--presets=@babel/env', '--ignore=*.min.js,*.umd.js',
-                 '--source-maps=true', '--verbose', // '--quiet',
+    npx('babel', '--source-maps=true', '--verbose',
                  '--out-dir', 'dist/test', 'test')
 ]);
 if (require.main === module) {

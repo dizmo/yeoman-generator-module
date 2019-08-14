@@ -5,8 +5,7 @@ const build = () => Promise.all([
     npx('coffee', '--no-header', '-bco', 'dist/lib', 'lib'),
     npx('coffee', '--no-header', '-bco', 'dist/test', 'test')
 ]).then(() =>
-    npx('babel', '--presets=@babel/env', '--ignore=*.min.js,*.umd.js',
-                 '--source-maps=true', '--verbose', // '--quiet',
+    npx('babel', '--source-maps=true', '--verbose',
                  '--out-dir', 'dist', 'dist')
 );
 if (require.main === module) {
