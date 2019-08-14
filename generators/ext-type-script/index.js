@@ -41,10 +41,10 @@ module.exports = class extends generator {
             }
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    '@types/chai': '^4.1.7',
+                    '@types/chai': '^4.2.0',
                     '@types/mocha': '^5.2.7',
-                    'tslint': '^5.17.0',
-                    'typescript': '^3.5.1'
+                    'tslint': '^5.18.0',
+                    'typescript': '^3.5.3'
                 })
             );
             if (pkg.devDependencies['eslint']) {

@@ -6,8 +6,8 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "lodash": "^4.17.11",
-    "rimraf": "^2.6.3",
+    "lodash": "^4.17.15",
+    "rimraf": "^2.7.0",
     "shelljs": "^0.8.3",
     "yeoman-generator": "^4.0.1",
     "yosay": "^2.0.2"
@@ -15,7 +15,7 @@
   "description": "dizmoMod: a module generator for JavaScript, CoffeeScript, and TypeScript",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-eslint": "^5.0.0",
+    "gulp-eslint": "^6.0.0",
     "gulp-exclude-gitignore": "^1.2.0",
     "pump": "^3.0.0"
   },
