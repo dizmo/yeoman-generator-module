@@ -1,8 +1,8 @@
 /* eslint-env node, mocha */
 
 'use strict';
-let expect = require('chai').expect;
-let index = require('../lib');
+import { expect } from 'chai';
+import * as index from '../lib';
 
 describe('index.id', () => {
     it('should exist', () => {

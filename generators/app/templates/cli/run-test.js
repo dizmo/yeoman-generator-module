@@ -2,7 +2,7 @@ const { arg, npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const test = () => arg('cover')(false)
-    ? npx('nyc', 'mocha', 'dist/test', '--recursive')
+    ? npx('nyc', '-i', 'esm', 'mocha', 'dist/test', '--recursive')
     : npx('mocha', 'dist/test', '--recursive');
 
 if (require.main === module) {

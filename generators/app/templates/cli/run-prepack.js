@@ -7,7 +7,7 @@ const prepare = () => (
     (p, fn) => p.then(fn), Promise.resolve()
 );
 const browserify = () => npx('browserify', 'dist/lib/index.js',
-    '--debug', // '--standalone', '<%= name.replace("@", "").replace("/", "-") %>',
+    '--debug', '--plugin=esmify', // '--standalone', '<%= name.replace("@", "").replace("/", "-") %>',
     '|', 'exorcist', 'dist/lib/index.umd.js.map',
     '>', 'dist/lib/index.umd.js'
 );

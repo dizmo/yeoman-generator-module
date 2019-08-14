@@ -12,15 +12,21 @@
 
     Introduced `--prepack` option to allow UMD support. Since standalone UMD modules can be relatively large, they are minified automatically (which can be suppressed by appending `--no-minify`).
 
-* Support for `npm run clean`:
+* Support for ES6 via `esm` and `esmify`:
 
-    Cleans the `./dist` folder except for the `.gitignore` and `.npmignore` files, to ensure correct behaviour w.r.t. `npm run -- build --prepack`. Also, `npm run clean` is automatically invoked prior to any `npm run build` (or `npm run test`), where this behaviour can be suppressed with the `--no-clean` flag.
+    While so far it was possible to use ES6 `import` and `export` statements in the *source* code, it was neither possible to write test cases with `import` statements, nor possible to browserify such ES6 code (e.g. when `babel` was deliberately switched off).
+
+    With the `esm` package and the `esmify` plugin (for browserify) both problems have been fixed.
 
 ### NOTABLE CHANGES
 
 * Refactored the `run-{lint, build, test}` CLI scripts:
 
     As a result of this refactoring the `--no-lint` and `--no-build` command line flags became completely independent of each other, while before there was an undesirable interdependence.
+
+* Support for `npm run clean`:
+
+    Cleans the `./dist` folder except for the `.gitignore` and `.npmignore` files, to ensure correct behaviour w.r.t. `npm run -- build --prepack`. Also, `npm run clean` is automatically invoked prior to any `npm run build` (or `npm run test`), where this behaviour can be suppressed with the `--no-clean` flag.
 
 ## v1.y.z
 

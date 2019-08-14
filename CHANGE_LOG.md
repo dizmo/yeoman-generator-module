@@ -6,7 +6,13 @@
 
     The `./dist` folder by default contains the `.gitignore` and `.npmignore` files, to ensure correct behaviour w.r.t. `npm run -- build --prepack`, i.e. any `./dist/*.umd.js` or `./dist/*.min.js` bundles are *ignored* by GIT, but they are *still* published by NPM.
 
-    To avoid these ignore files being accidentially removed (with e.g. a manual `rm ./dist`), introduced `npm run clean` which cleans the `./dist` directory *except* for these `.gitignore` and `.npmignore` files. Further, `npm run clean` is automatically invoked prior to any `npm run build` (or `npm run test`), where this behaviour can be suppressed with the `--no-clean` flag.
+    To avoid these ignore files being accidentally removed (with e.g. a manual `rm ./dist`), introduced `npm run clean` which cleans the `./dist` directory *except* for these `.gitignore` and `.npmignore` files. Further, `npm run clean` is automatically invoked prior to any `npm run build` (or `npm run test`), where this behavior can be suppressed with the `--no-clean` flag.
+
+* Support for ES6 via `esm` and `esmify`:
+
+    While so far it was possible to use ES6 `import` and `export` statements in the *source* code, it was neither possible to write test cases with `import` statements, nor possible to browserify such ES6 code (e.g. when `babel` was deliberately switched off).
+
+    With the `esm` package and the `esmify` plugin (for browserify) both problems have been fixed.
 
 ## v2.1.z
 
