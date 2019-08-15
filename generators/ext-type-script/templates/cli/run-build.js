@@ -3,8 +3,8 @@ const { exit } = require('process');
 
 const build = () => npx('tsc').then(() => npx('babel',
     '--source-maps=true', '--verbose',
-    '--out-dir', 'dist', 'dist')
-);
+    '--out-dir', 'dist', 'dist'
+));
 if (require.main === module) {
     let p = npm('install').then(() => {
         p = arg('lint')(true) ? p.then(require('./run-lint')) : p;
