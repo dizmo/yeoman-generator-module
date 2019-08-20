@@ -13,12 +13,6 @@
     "yosay": "^2.0.2"
   },
   "description": "dizmoMod: a module generator for JavaScript, CoffeeScript, and TypeScript",
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-eslint": "^6.0.0",
-    "gulp-exclude-gitignore": "^1.2.0",
-    "pump": "^3.0.0"
-  },
   "files": [
     "generators/app",
     "generators/ext-coffee-script",
@@ -39,9 +33,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dizmo/yeoman-generator-module"
-  },
-  "scripts": {
-    "prepare": "gulp prepare"
   },
   "version": "2.2.12"
 }
