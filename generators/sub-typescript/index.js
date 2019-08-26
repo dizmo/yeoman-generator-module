@@ -1,31 +1,16 @@
 'use strict';
 
-let fs = require('fs'),
-    generator = require('yeoman-generator'),
-    lodash = require('lodash'),
-    rimraf = require('rimraf');
+const fs = require('fs');
+const Generator = require('yeoman-generator');
+const lodash = require('lodash');
+const rimraf = require('rimraf');
 
-function sort(dictionary) {
-    let array = [],
-        sorted = {};
-
-    for(let key in dictionary) {
-        array[array.length] = key;
-    }
-    array.sort();
-
-    for(let i = 0; i < array.length; i++) {
-        sorted[array[i]] = dictionary[array[i]];
-    }
-    return sorted;
-}
-
-module.exports = class extends generator {
+module.exports = class extends Generator {
     writing() {
-        let upgrade = Boolean(
+        const upgrade = Boolean(
             this.options.upgrade && fs.existsSync('package.json'));
         if (!upgrade || upgrade) {
-            let pkg = this.fs.readJSON(
+            const pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
             );
             this.fs.copyTpl(
@@ -33,7 +18,7 @@ module.exports = class extends generator {
                 this.destinationPath('cli/'), pkg);
         }
         if (!upgrade || upgrade) {
-            let pkg = this.fs.readJSON(
+            const pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
             );
             if (pkg.types === undefined) {
@@ -43,7 +28,7 @@ module.exports = class extends generator {
                 lodash.assign(pkg.devDependencies, {
                     '@types/chai': '^4.2.0',
                     '@types/mocha': '^5.2.7',
-                    'tslint': '^5.18.0',
+                    'tslint': '^5.19.0',
                     'typescript': '^3.5.3'
                 })
             );
@@ -81,3 +66,8 @@ module.exports = class extends generator {
             this.destinationPath('lib/index.js'));
     }
 };
+function sort(object) {
+    return Object.entries(object).sort().reduce(
+        (a, [k, v]) => { a[k] = v; return a; }, {}
+    );
+}

@@ -28,6 +28,10 @@
 
     Cleans the `./dist` folder except for the `.gitignore` and `.npmignore` files, to ensure correct behaviour w.r.t. `npm run -- build --prepack`. Also, `npm run clean` is automatically invoked prior to any `npm run build` (or `npm run test`), where this behaviour can be suppressed with the `--no-clean` flag.
 
+* Integrated generator tests with CI:
+
+    The JavaScript, CoffeeScript and TypeScript project generators are now automatically verified with `npm test`, which is also run by the https://travis-ci.org continuous integration service. The entire list of generated files is checked, plus the full content of `package.json`.
+
 ## v1.y.z
 
 ### MAJOR CHANGES

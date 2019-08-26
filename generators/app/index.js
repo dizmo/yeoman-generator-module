@@ -1,30 +1,15 @@
 'use strict';
 
-let chalk = require('chalk'),
-    fs = require('fs'),
-    generator = require('yeoman-generator'),
-    lodash = require('lodash'),
-    process = require('process'),
-    shell = require('shelljs'),
-    rimraf = require('rimraf'),
-    yosay = require('yosay');
+const chalk = require('chalk');
+const fs = require('fs');
+const Generator = require('yeoman-generator');
+const lodash = require('lodash');
+const process = require('process');
+const shell = require('shelljs');
+const rimraf = require('rimraf');
+const yosay = require('yosay');
 
-function sort(dictionary) {
-    let array = [],
-        sorted = {};
-
-    for(let key in dictionary) {
-        array[array.length] = key;
-    }
-    array.sort();
-
-    for(let i = 0; i < array.length; i++) {
-        sorted[array[i]] = dictionary[array[i]];
-    }
-    return sorted;
-}
-
-module.exports = class extends generator {
+module.exports = class extends Generator {
     constructor(args, opts) {
         super(args, opts);
 
@@ -81,7 +66,7 @@ module.exports = class extends generator {
 
     prompting() {
         const self = this;
-        let prompts = [], pkg = fs.existsSync('package.json')
+        const prompts = [], pkg = fs.existsSync('package.json')
             ? JSON.parse(fs.readFileSync('package.json'))
             : {};
 
@@ -263,7 +248,7 @@ module.exports = class extends generator {
         if (fs.existsSync('package.json')) {
             this.destinationRoot(process.cwd());
         } else {
-            let root = lodash.kebabCase(this.properties.name[0] === '@'
+            const root = lodash.kebabCase(this.properties.name[0] === '@'
                 ? this.properties.name.split('/')[1] || this.properties.name
                 : this.properties.name);
             if (this.options['git']) {
@@ -277,7 +262,7 @@ module.exports = class extends generator {
     }
 
     writing() {
-        let upgrade = Boolean(
+        const upgrade = Boolean(
             this.options.upgrade && fs.existsSync('package.json'));
         if (!upgrade) {
             this.fs.copyTpl(
@@ -292,7 +277,7 @@ module.exports = class extends generator {
                 this.destinationPath('cli/'), this.properties);
         }
         if (!upgrade || upgrade) {
-            let pkg = this.fs.readJSON(
+            const pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
             );
             pkg.dependencies = sort(
@@ -312,12 +297,12 @@ module.exports = class extends generator {
                     'exorcist': '^1.0.1',
                     'mocha': '^6.2.0',
                     'nyc': '^14.1.1',
-                    'yargs': '^13.3.0'
+                    'yargs': '^14.0.0'
                })
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^6.2.0'
+                    'eslint': '^6.2.2'
                 })
             );
             pkg.scripts = sort(
@@ -386,26 +371,26 @@ module.exports = class extends generator {
     }
 
     end() {
-        let pkg = this.fs.readJSON(
+        const pkg = this.fs.readJSON(
             this.destinationPath('package.json'));
 
         if (!this.options['typescript'] && this.options.upgrade && pkg.devDependencies['coffeescript'] ||
             !this.options['typescript'] && this.options['coffeescript']
         ) {
-            this.composeWith('@dizmo/module:ext-coffee-script', lodash.assign(
-                this.options, {
-                    args: this.args, force: this.properties.initial
-                }
-            ));
+            this.composeWith(require.resolve(
+                '../sub-coffeescript'
+            ), lodash.assign(this.options, {
+                args: this.args, force: this.properties.initial
+            }));
         } else if (
             !this.options['coffeescript'] && this.options.upgrade && pkg.devDependencies['typescript'] ||
             !this.options['coffeescript'] && this.options['typescript']
         ) {
-            this.composeWith('@dizmo/module:ext-type-script', lodash.assign(
-                this.options, {
-                    args: this.args, force: this.properties.initial
-                }
-            ));
+            this.composeWith(require.resolve(
+                '../sub-typescript'
+            ), lodash.assign(this.options, {
+                args: this.args, force: this.properties.initial
+            }));
         } else {
             this.log(
                 `\nSetting the project root at: ${this.destinationPath()}`);
@@ -421,7 +406,7 @@ module.exports = class extends generator {
     }
 
     _git() {
-        let git = shell.which('git');
+        const git = shell.which('git');
         if (git && this.options.git) {
             this.spawnCommand(git.toString(), [
                 'init', '--quiet', this.destinationPath()
@@ -429,3 +414,8 @@ module.exports = class extends generator {
         }
     }
 };
+function sort(object) {
+    return Object.entries(object).sort().reduce(
+        (a, [k, v]) => { a[k] = v; return a; }, {}
+    );
+}

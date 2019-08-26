@@ -1,4 +1,5 @@
 [![NPM version](https://badge.fury.io/js/%40dizmo%2Fgenerator-module.svg)](https://npmjs.org/package/@dizmo/generator-module)
+[![Build Status](https://travis-ci.org/dizmo/yeoman-generator-module.svg?branch=master)](https://travis-ci.org/dizmo/yeoman-generator-module)
 
 # @dizmo/generator-module
 
@@ -118,6 +119,6 @@ npm publish --access=public
 
 ## Copyright
 
- © 2018 [dizmo AG](http://dizmo.com/), Switzerland
+ © 2019 [dizmo AG](http://dizmo.com/), Switzerland
 
 [Node.js]: https://nodejs.org

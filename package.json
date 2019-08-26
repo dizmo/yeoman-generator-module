@@ -13,6 +13,11 @@
     "yosay": "^2.0.2"
   },
   "description": "dizmoMod: a module generator for JavaScript, CoffeeScript, and TypeScript",
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^2.0.0"
+  },
   "files": [
     "generators/app",
     "generators/ext-coffee-script",
@@ -33,6 +38,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dizmo/yeoman-generator-module"
+  },
+  "scripts": {
+    "test": "npx mocha test --recursive"
   },
   "version": "2.2.13"
 }

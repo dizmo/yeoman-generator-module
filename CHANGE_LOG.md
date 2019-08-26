@@ -14,6 +14,10 @@
 
     With the `esm` package and the `esmify` plugin (for browserify) both problems have been fixed.
 
+* Integrated generator tests with CI:
+
+    The JavaScript, CoffeeScript and TypeScript project generators are now automatically verified with `npm test`, which is also run by the https://travis-ci.org continuous integration service. The entire list of generated files is checked, plus the full content of `package.json`.
+
 ## v2.1.z
 
 * Support UMD modules with `npm run build`:
