@@ -2,7 +2,7 @@ const assert = require('yeoman-assert');
 const { run } = require('yeoman-test');
 const { join } = require('path');
 
-describe('generator-dizmo:sub-coffeescript', function () {
+describe('generator-module:sub-coffeescript', function () {
     const generator = join(__dirname, '../generators/app');
     it('yo @dizmo/module --coffeescript', () => {
         return run(generator).withOptions({
