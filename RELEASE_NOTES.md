@@ -18,6 +18,10 @@
 
     With the `esm` package and the `esmify` plugin (for browserify) both problems have been fixed.
 
+* Bundling via `webpack`:
+
+    Replaced the `browserify` bundler with `webpack`, which required the addition of a `webpack.config.js` configuration to the project. Also, the `esmify` plugin is longer required, while `esm` still is &ndash; due to it being used in `npm test`.
+
 ### NOTABLE CHANGES
 
 * Refactored the `run-{lint, build, test}` CLI scripts:

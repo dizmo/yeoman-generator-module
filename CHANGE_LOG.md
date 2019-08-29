@@ -1,5 +1,11 @@
 # CHANGE LOG
 
+## v2.3.z
+
+* Bundling via `webpack`:
+
+    Replaced the `browserify` bundler with `webpack`, which required the addition of a `webpack.config.js` configuration to the project. Also, the `esmify` plugin is longer required, while `esm` still is &ndash; due to it being used in `npm test`.
+
 ## v2.2.z
 
 * Support for `npm run clean`:
