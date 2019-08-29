@@ -31,6 +31,7 @@ describe('generator-module:app', function () {
                 'test',
                 'test/test.js',
                 '.travis.yml',
+                'webpack.config.js',
                 '.yo-rc.json'
             ]);
             assert.jsonFileContent('package.json', {
@@ -52,15 +53,15 @@ describe('generator-module:app', function () {
                     '@babel/cli': '^7.5.5',
                     '@babel/core': '^7.5.5',
                     '@babel/preset-env': '^7.5.5',
-                    'browserify': '^16.5.0',
                     'chai': '^4.2.0',
                     'coveralls': '^3.0.6',
                     'eslint': '^6.2.2',
                     'esm': '^3.2.25',
-                    'esmify': '^2.1.1',
-                    'exorcist': '^1.0.1',
                     'mocha': '^6.2.0',
                     'nyc': '^14.1.1',
+                    'source-map-loader': '^0.2.4',
+                    'webpack': '^4.39.3',
+                    'webpack-cli': '^3.3.7',
                     'yargs': '^14.0.0'
                 },
                 'files': [

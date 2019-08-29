@@ -32,6 +32,7 @@ describe('generator-module:sub-coffeescript', function () {
                 'test',
                 'test/test.coffee',
                 '.travis.yml',
+                'webpack.config.js',
                 '.yo-rc.json'
             ]);
             assert.jsonFileContent('package.json', {
@@ -53,16 +54,16 @@ describe('generator-module:sub-coffeescript', function () {
                     '@babel/cli': '^7.5.5',
                     '@babel/core': '^7.5.5',
                     '@babel/preset-env': '^7.5.5',
-                    'browserify': '^16.5.0',
                     'chai': '^4.2.0',
                     'coffeelint': '2.1.0',
                     'coffeescript': '^2.4.1',
                     'coveralls': '^3.0.6',
                     'esm': '^3.2.25',
-                    'esmify': '^2.1.1',
-                    'exorcist': '^1.0.1',
                     'mocha': '^6.2.0',
                     'nyc': '^14.1.1',
+                    'source-map-loader': '^0.2.4',
+                    'webpack': '^4.39.3',
+                    'webpack-cli': '^3.3.7',
                     'yargs': '^14.0.0'
                 },
                 'files': [
