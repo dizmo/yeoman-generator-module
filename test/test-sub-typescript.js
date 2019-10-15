@@ -8,7 +8,8 @@ describe('generator-module:sub-typescript', function () {
         return run(generator).withOptions({
             'author': 'Dizmo Developer',
             'email': 'developer@dizmo.com',
-            'typescript': true
+            'typescript': true,
+            'url': 'https://www.dizmo.com/developer'
         }).then(() => {
             assert.file([
                 'babel.config.js',
@@ -40,13 +41,13 @@ describe('generator-module:sub-typescript', function () {
                 'author': {
                     'name': 'Dizmo Developer',
                     'email': 'developer@dizmo.com',
-                    'url': ''
+                    'url': 'https://www.dizmo.com/developer'
                 },
                 'contributors': [
                     {
                         'name': 'Dizmo Developer',
                         'email': 'developer@dizmo.com',
-                        'url': ''
+                        'url': 'https://www.dizmo.com/developer'
                     }
                 ],
                 'dependencies': {},
@@ -63,7 +64,7 @@ describe('generator-module:sub-typescript', function () {
                     'mocha': '^6.2.0',
                     'nyc': '^14.1.1',
                     'tslint': '^5.19.0',
-                    'typescript': '^3.6.2',
+                    'typescript': '^3.6.4',
                     'source-map-loader': '^0.2.4',
                     'webpack': '^4.39.3',
                     'webpack-cli': '^3.3.7',

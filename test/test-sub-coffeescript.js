@@ -9,6 +9,7 @@ describe('generator-module:sub-coffeescript', function () {
             'author': 'Dizmo Developer',
             'coffeescript': true,
             'email': 'developer@dizmo.com',
+            'url': 'https://www.dizmo.com/developer'
         }).then(() => {
             assert.file([
                 'babel.config.js',
@@ -39,13 +40,13 @@ describe('generator-module:sub-coffeescript', function () {
                 'author': {
                     'name': 'Dizmo Developer',
                     'email': 'developer@dizmo.com',
-                    'url': ''
+                    'url': 'https://www.dizmo.com/developer'
                 },
                 'contributors': [
                     {
                         'name': 'Dizmo Developer',
                         'email': 'developer@dizmo.com',
-                        'url': ''
+                        'url': 'https://www.dizmo.com/developer'
                     }
                 ],
                 'dependencies': {},

@@ -7,7 +7,8 @@ describe('generator-module:app', function () {
     it('yo @dizmo/module', () => {
         return run(generator).withOptions({
             'author': 'Dizmo Developer',
-            'email': 'developer@dizmo.com'
+            'email': 'developer@dizmo.com',
+            'url': 'https://www.dizmo.com/developer'
         }).then(() => {
             assert.file([
                 'babel.config.js',
@@ -38,13 +39,13 @@ describe('generator-module:app', function () {
                 'author': {
                     'name': 'Dizmo Developer',
                     'email': 'developer@dizmo.com',
-                    'url': ''
+                    'url': 'https://www.dizmo.com/developer'
                 },
                 'contributors': [
                     {
                         'name': 'Dizmo Developer',
                         'email': 'developer@dizmo.com',
-                        'url': ''
+                        'url': 'https://www.dizmo.com/developer'
                     }
                 ],
                 'dependencies': {},
