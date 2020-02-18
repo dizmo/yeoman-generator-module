@@ -138,6 +138,10 @@ export PATH="$PATH:$HOME/.node/bin"
 
 in your `~/.bashrc`. After that, you can happily run `npm install -g yo` without `sudo` and without running into potential permission conflicts. Further, later-on if something gets completely broken and you want to start from scratch, all you need to do, is to remove your `~/.node` directory.
 
+### Security Audits
+
+The [npm] tool offers the `npm audit` and `npm audit fix` commands, which scan your project for vulnerabilities and automatically install any compatible updates to vulnerable dependencies. Run `npm help audit` to get an in-depth description about this tool.
+
 ## Copyright
 
  © 2019 [dizmo AG](http://dizmo.com/), Switzerland
