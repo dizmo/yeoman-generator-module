@@ -16,6 +16,9 @@ module.exports = class extends Generator {
             this.fs.copyTpl(
                 this.templatePath('cli/'),
                 this.destinationPath('cli/'), pkg);
+            this.fs.copy(
+                this.templatePath('_eslintrc.json'),
+                this.destinationPath('.eslintrc.json'));
         }
         if (!upgrade || upgrade) {
             const pkg = this.fs.readJSON(
@@ -28,13 +31,11 @@ module.exports = class extends Generator {
                 lodash.assign(pkg.devDependencies, {
                     '@types/chai': '^4.2.9',
                     '@types/mocha': '^7.0.1',
-                    'tslint': '^6.0.0',
-                    'typescript': '^3.7.5'
+                    '@typescript-eslint/parser': '2.21.0',
+                    '@typescript-eslint/eslint-plugin': '2.21.0',
+                    'typescript': '^3.8.2'
                 })
             );
-            if (pkg.devDependencies['eslint']) {
-                delete pkg.devDependencies['eslint'];
-            }
             this.fs.writeJSON(
                 this.destinationPath('package.json'), sort(pkg), null, 2);
         }
@@ -48,9 +49,6 @@ module.exports = class extends Generator {
         }
         if (!upgrade) {
             this.fs.copy(
-                this.templatePath('tslint.json'),
-                this.destinationPath('tslint.json'));
-            this.fs.copy(
                 this.templatePath('tsconfig.json'),
                 this.destinationPath('tsconfig.json'));
         }
@@ -59,7 +57,7 @@ module.exports = class extends Generator {
 
     end() {
         rimraf.sync(
-            this.destinationPath('.eslintrc.json'));
+            this.destinationPath('tslint.json'));
         rimraf.sync(
             this.destinationPath('test/test.js'));
         rimraf.sync(

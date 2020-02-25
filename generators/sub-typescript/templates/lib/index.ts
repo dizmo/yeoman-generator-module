@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-explicit-any: 0 */
+
 /**
  * Returns list of provided arguments as is without any modification.
  *
