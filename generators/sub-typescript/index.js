@@ -29,11 +29,11 @@ module.exports = class extends Generator {
             }
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    '@types/chai': '^4.2.9',
-                    '@types/mocha': '^7.0.1',
-                    '@typescript-eslint/parser': '2.21.0',
-                    '@typescript-eslint/eslint-plugin': '2.21.0',
-                    'typescript': '^3.8.2'
+                    '@types/chai': '^4.2.11',
+                    '@types/mocha': '^7.0.2',
+                    '@typescript-eslint/parser': '2.29.0',
+                    '@typescript-eslint/eslint-plugin': '2.29.0',
+                    'typescript': '^3.8.3'
                 })
             );
             this.fs.writeJSON(
