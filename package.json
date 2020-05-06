@@ -20,8 +20,8 @@
   },
   "files": [
     "generators/app",
-    "generators/ext-coffee-script",
-    "generators/ext-type-script"
+    "generators/sub-coffeescript",
+    "generators/sub-typescript"
   ],
   "homepage": "https://github.com/dizmo/yeoman-generator-module",
   "keywords": [
