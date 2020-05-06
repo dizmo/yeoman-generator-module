@@ -31,8 +31,8 @@ module.exports = class extends Generator {
                 lodash.assign(pkg.devDependencies, {
                     '@types/chai': '^4.2.11',
                     '@types/mocha': '^7.0.2',
-                    '@typescript-eslint/parser': '2.29.0',
-                    '@typescript-eslint/eslint-plugin': '2.29.0',
+                    '@typescript-eslint/parser': '2.31.0',
+                    '@typescript-eslint/eslint-plugin': '2.31.0',
                     'typescript': '^3.8.3'
                 })
             );

@@ -295,15 +295,15 @@ module.exports = class extends Generator {
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
                     '@babel/cli': '^7.8.4',
-                    '@babel/core': '^7.9.0',
-                    '@babel/preset-env': '^7.9.5',
+                    '@babel/core': '^7.9.6',
+                    '@babel/preset-env': '^7.9.6',
                     'chai': '^4.2.0',
-                    'coveralls': '^3.0.11',
+                    'coveralls': '^3.1.0',
                     'esm': '^3.2.25',
-                    'mocha': '^7.1.1',
+                    'mocha': '^7.1.2',
                     'nyc': '^15.0.1',
                     'source-map-loader': '^0.2.4',
-                    'webpack': '^4.42.1',
+                    'webpack': '^4.43.0',
                     'webpack-cli': '^3.3.11',
                     'yargs': '^15.3.1'
                })
