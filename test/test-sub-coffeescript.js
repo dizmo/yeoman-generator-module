@@ -22,6 +22,7 @@ describe('generator-module:sub-coffeescript', function () {
                 'cli/run-test.js',
                 'cli/run-utils.js',
                 'coffeelint.json',
+                'docs/.gitignore',
                 'dist',
                 'dist/.gitignore',
                 'dist/.npmignore',

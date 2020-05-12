@@ -21,6 +21,7 @@ describe('generator-module:sub-typescript', function () {
                 'cli/run-prepack.js',
                 'cli/run-test.js',
                 'cli/run-utils.js',
+                'docs/.gitignore',
                 'dist',
                 'dist/.gitignore',
                 'dist/.npmignore',
