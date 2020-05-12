@@ -3,10 +3,12 @@
  *
  * The identify function is a no-operation and it does not modify the
  * provided list of arguments. If no or a single argument is provided
- * then nothing or only the same single argument is returned.
+ * then `undefined` or the same argument is returned.
  *
- * @param arguments list of arguments
- * @returns array of arguments
+ * @param {object} arguments
+ *  object of arguments
+ * @returns {any[]|undefined}
+ *  array of arguments or `undefined`
  */
 export function id() {
     if (arguments.length === 0) {
@@ -15,7 +17,8 @@ export function id() {
     if (arguments.length === 1) {
         return arguments[0];
     }
-    return Array.prototype.slice.call(arguments);
+    return Array.prototype.slice.call(
+        arguments
+    );
 }
-
 export default id;

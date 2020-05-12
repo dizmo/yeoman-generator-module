@@ -300,6 +300,8 @@ module.exports = class extends Generator {
                     'chai': '^4.2.0',
                     'coveralls': '^3.1.0',
                     'esm': '^3.2.25',
+                    'jsdoc': '^3.6.4',
+                    'minami': '^1.2.3',
                     'mocha': '^7.1.2',
                     'nyc': '^15.0.1',
                     'source-map-loader': '^0.2.4',
@@ -310,7 +312,7 @@ module.exports = class extends Generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^6.8.0'
+                    'eslint': '^7.0.0'
                 })
             );
             pkg.scripts = sort(
@@ -318,6 +320,7 @@ module.exports = class extends Generator {
                     'build': 'node ./cli/run-build.js',
                     'clean': 'node ./cli/run-clean.js',
                     'cover': 'node ./cli/run-test.js --cover',
+                    'docs': 'node ./cli/run-docs.js',
                     'lint': 'node ./cli/run-lint.js',
                     'prepack': 'node ./cli/run-prepack.js',
                     'test': 'node ./cli/run-test.js'
@@ -367,8 +370,16 @@ module.exports = class extends Generator {
                 this.templatePath('dist/_gitignore'),
                 this.destinationPath('dist/.gitignore'));
             this.fs.copy(
-                    this.templatePath('dist/_npmignore'),
-                    this.destinationPath('dist/.npmignore'));
+                this.templatePath('dist/_npmignore'),
+                this.destinationPath('dist/.npmignore'));
+        }
+        if (!upgrade || upgrade) {
+            this.fs.copy(
+                this.templatePath('jsdoc.json'),
+                this.destinationPath('jsdoc.json'));
+            this.fs.copy(
+                this.templatePath('docs/_gitignore'),
+                this.destinationPath('docs/.gitignore'));
         }
         this.conflicter.force = upgrade;
     }

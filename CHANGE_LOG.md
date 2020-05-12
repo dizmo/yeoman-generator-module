@@ -1,5 +1,11 @@
 # CHANGE LOG
 
+## v2.4.z
+
+* Support for `npm run docs`:
+
+    It is possible now to generate documentation, where the `jsdoc` tool is used to parse the comments embedded within the source code to extract the necessary information.
+
 ## v2.3.z
 
 * Bundling via `webpack`:

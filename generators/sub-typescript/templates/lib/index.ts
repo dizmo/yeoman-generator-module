@@ -1,16 +1,17 @@
-/* eslint @typescript-eslint/no-explicit-any: 0 */
-
+/* eslint @typescript-eslint/no-explicit-any: ["off"] */
 /**
  * Returns list of provided arguments as is without any modification.
  *
  * The identify function is a no-operation and it does not modify the
  * provided list of arguments. If no or a single argument is provided
- * then nothing or only the same single argument is returned.
+ * then `undefined` or the same argument is returned.
  *
- * @param args list of arguments
- * @returns array of arguments
+ * @param {any[]} args
+ *  object of arguments
+ * @returns {any[]|undefined}
+ *  array of arguments or `undefined`
  */
-export function id(...args: any[]): any | any[] {
+export function id(...args: any[]): any[]|undefined {
     if (args.length === 0) {
         return undefined;
     }
@@ -19,5 +20,4 @@ export function id(...args: any[]): any | any[] {
     }
     return args;
 }
-
 export default id;
