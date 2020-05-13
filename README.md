@@ -9,7 +9,7 @@
 
 * [Node.js] v10.15.3 LTS (or higher); for Linux distribution based packages (`deb` or `rpm`) see also [binary distributions](https://github.com/nodesource/distributions).
 
-## Install
+## Installation
 
 ```sh
 npm install -g yo
@@ -28,7 +28,7 @@ npm install -g @dizmo/generator-module
 yo @dizmo/module --help
 ```
 
-## Generate
+## Generation
 
 ```sh
 yo @dizmo/module [--git] [--typescript|--coffeescript]
@@ -108,7 +108,13 @@ npm run cover
 npm run -- cover --no-lint --no-clean --no-build
 ```
 
-## Publish
+## Documentation
+
+```sh
+npm run docs
+```
+
+## Publication
 
 ```sh
 npm publish
@@ -140,7 +146,7 @@ in your `~/.bashrc`. After that, you can happily run `npm install -g yo` without
 
 ### Security Audits
 
-The [npm] tool offers the `npm audit` and `npm audit fix` commands, which scan your project for vulnerabilities and automatically install any compatible updates to vulnerable dependencies. Run `npm help audit` to get an in-depth description about this tool.
+The `npm` tool offers the `npm audit` and `npm audit fix` commands, which scan your project for vulnerabilities and automatically install any compatible updates to vulnerable dependencies. Run `npm help audit` to get an in-depth description about this tool.
 
 ## Copyright
 

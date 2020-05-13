@@ -8,7 +8,7 @@ Library module.
 
 ## Usage
 
-### Install
+### Installation
 
 ```sh
 npm install <%= name %> --save
@@ -94,7 +94,13 @@ npm run cover
 npm run -- cover --no-lint --no-clean --no-build
 ```
 
-## Publish
+## Documentation
+
+```sh
+npm run docs
+```
+
+## Publication
 
 ```sh
 npm publish
