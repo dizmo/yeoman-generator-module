@@ -26,7 +26,6 @@ describe('generator-module:sub-typescript', function () {
                 'dist/.gitignore',
                 'dist/.npmignore',
                 '.eslintrc.json',
-                'jsdoc.json',
                 'lib',
                 'lib/index.ts',
                 'LICENSE',
@@ -37,6 +36,7 @@ describe('generator-module:sub-typescript', function () {
                 'test/test.ts',
                 '.travis.yml',
                 'tsconfig.json',
+                'typedoc.json',
                 'webpack.config.js',
                 '.yo-rc.json'
             ]);
@@ -67,10 +67,10 @@ describe('generator-module:sub-typescript', function () {
                     'coveralls': '^3.1.0',
                     'eslint': '^7.0.0',
                     'esm': '^3.2.25',
-                    'jsdoc': '^3.6.4',
                     'minami': '^1.2.3',
                     'mocha': '^7.1.2',
                     'nyc': '^15.0.1',
+                    'typedoc': '^0.17.6',
                     'typescript': '^3.8.3',
                     'source-map-loader': '^0.2.4',
                     'webpack': '^4.43.0',

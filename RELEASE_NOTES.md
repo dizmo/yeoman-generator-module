@@ -22,9 +22,13 @@
 
     Replaced the `browserify` bundler with `webpack`, which required the addition of a `webpack.config.js` configuration to the project. Also, the `esmify` plugin is longer required, while `esm` still is &ndash; due to it being used in `npm test`.
 
-* Support for `npm run docs`:
+* Support for `npm run docs` for JavaScript:
 
-    It is possible now to generate documentation, where the `jsdoc` tool is used to parse the comments embedded within the source code to extract the necessary information.
+    Enabled documentation generation, where the `jsdoc` tool is used to parse the comments embedded within the source code to extract the necessary information.
+
+* Support for `npm run docs` for TypeScript:
+
+    Enabled documentation generation, where the `typedoc` tool is used to parse the comments embedded within the source code to extract the necessary information.
 
 ### NOTABLE CHANGES
 

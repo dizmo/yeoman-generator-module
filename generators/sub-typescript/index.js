@@ -19,7 +19,10 @@ module.exports = class extends Generator {
             this.fs.copy(
                 this.templatePath('_eslintrc.json'),
                 this.destinationPath('.eslintrc.json'));
-        }
+            this.fs.copy(
+                this.templatePath('typedoc.json'),
+                this.destinationPath('typedoc.json'));
+            }
         if (!upgrade || upgrade) {
             const pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
@@ -33,9 +36,13 @@ module.exports = class extends Generator {
                     '@types/mocha': '^7.0.2',
                     '@typescript-eslint/parser': '2.31.0',
                     '@typescript-eslint/eslint-plugin': '2.31.0',
-                    'typescript': '^3.8.3'
+                    'typescript': '^3.8.3',
+                    'typedoc': '^0.17.6'
                 })
             );
+            if (pkg.devDependencies['jsdoc']) {
+                delete pkg.devDependencies['jsdoc'];
+            }
             this.fs.writeJSON(
                 this.destinationPath('package.json'), sort(pkg), null, 2);
         }
@@ -56,6 +63,8 @@ module.exports = class extends Generator {
     }
 
     end() {
+        rimraf.sync(
+            this.destinationPath('jsdoc.json'));
         rimraf.sync(
             this.destinationPath('tslint.json'));
         rimraf.sync(
