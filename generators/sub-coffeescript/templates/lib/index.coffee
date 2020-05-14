@@ -5,6 +5,7 @@
 # provided list of arguments. If no or a single argument is provided
 # then `undefined` or the same argument is returned.
 #
+# @function
 # @param {object} arguments
 #   object of arguments
 # @returns {any[]|undefined}

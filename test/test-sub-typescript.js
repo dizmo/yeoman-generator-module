@@ -95,6 +95,7 @@ describe('generator-module:sub-typescript', function () {
                     'build': 'node ./cli/run-build.js',
                     'clean': 'node ./cli/run-clean.js',
                     'cover': 'node ./cli/run-test.js --cover',
+                    'docs': 'node ./cli/run-docs.js',
                     'lint': 'node ./cli/run-lint.js',
                     'prepack': 'node ./cli/run-prepack.js',
                     'test': 'node ./cli/run-test.js'

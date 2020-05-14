@@ -2,7 +2,7 @@ const { npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const jsdoc = () => npx('jsdoc',
-    '--configure', 'jsdoc.json'
+    '--configure', 'jsdoc.json', 'lib'
 );
 if (require.main === module) {
     npm('install')

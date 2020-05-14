@@ -68,6 +68,7 @@ describe('generator-module:sub-coffeescript', function () {
                     'mocha': '^7.1.2',
                     'nyc': '^15.0.1',
                     'source-map-loader': '^0.2.4',
+                    'tmp': '^0.2.1',
                     'webpack': '^4.43.0',
                     'webpack-cli': '^3.3.11',
                     'yargs': '^15.3.1'
@@ -90,6 +91,7 @@ describe('generator-module:sub-coffeescript', function () {
                     'build': 'node ./cli/run-build.js',
                     'clean': 'node ./cli/run-clean.js',
                     'cover': 'node ./cli/run-test.js --cover',
+                    'docs': 'node ./cli/run-docs.js',
                     'lint': 'node ./cli/run-lint.js',
                     'prepack': 'node ./cli/run-prepack.js',
                     'test': 'node ./cli/run-test.js'

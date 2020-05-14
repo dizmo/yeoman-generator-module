@@ -1,7 +1,4 @@
 {
-    "source": {
-        "include": "lib"
-    },
     "opts": {
         "destination": "docs",
         "readme": "README.md",
