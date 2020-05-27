@@ -57,6 +57,7 @@ describe('generator-module:app', function () {
                     '@babel/cli': '^7.10.0',
                     '@babel/core': '^7.10.0',
                     '@babel/preset-env': '^7.10.0',
+                    '@babel/plugin-transform-runtime': '^7.10.0',
                     'chai': '^4.2.0',
                     'coveralls': '^3.1.0',
                     'eslint': '^7.1.0',

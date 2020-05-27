@@ -58,6 +58,7 @@ describe('generator-module:sub-coffeescript', function () {
                     '@babel/cli': '^7.10.0',
                     '@babel/core': '^7.10.0',
                     '@babel/preset-env': '^7.10.0',
+                    '@babel/plugin-transform-runtime': '^7.10.0',
                     'chai': '^4.2.0',
                     'coffeelint': '2.1.0',
                     'coffeescript': '^2.5.1',

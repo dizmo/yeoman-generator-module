@@ -59,6 +59,7 @@ describe('generator-module:sub-typescript', function () {
                     '@babel/cli': '^7.10.0',
                     '@babel/core': '^7.10.0',
                     '@babel/preset-env': '^7.10.0',
+                    '@babel/plugin-transform-runtime': '^7.10.0',
                     '@types/chai': '^4.2.11',
                     '@types/mocha': '^7.0.2',
                     '@typescript-eslint/eslint-plugin': '3.0.2',
