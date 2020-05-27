@@ -1,4 +1,2 @@
-*.min.js
-*.min.js.map
-*.umd.js
-*.umd.js.map
+*
+!.gitignore
