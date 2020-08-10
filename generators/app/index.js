@@ -294,26 +294,26 @@ module.exports = class extends Generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    '@babel/cli': '^7.10.0',
-                    '@babel/core': '^7.10.0',
-                    '@babel/preset-env': '^7.10.0',
-                    '@babel/plugin-transform-runtime': '^7.10.0',
+                    '@babel/cli': '^7.10.5',
+                    '@babel/core': '^7.11.1',
+                    '@babel/preset-env': '^7.11.0',
+                    '@babel/plugin-transform-runtime': '^7.11.0',
                     'chai': '^4.2.0',
                     'coveralls': '^3.1.0',
                     'esm': '^3.2.25',
-                    'jsdoc': '^3.6.4',
+                    'jsdoc': '^3.6.5',
                     'minami': '^1.2.3',
-                    'mocha': '^7.2.0',
-                    'nyc': '^15.0.1',
-                    'source-map-loader': '^1.0.0',
-                    'webpack': '^4.43.0',
-                    'webpack-cli': '^3.3.11',
-                    'yargs': '^15.3.1'
+                    'mocha': '^8.1.1',
+                    'nyc': '^15.1.0',
+                    'source-map-loader': '^1.0.1',
+                    'webpack': '^4.44.1',
+                    'webpack-cli': '^3.3.12',
+                    'yargs': '^15.4.1'
                })
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^7.1.0'
+                    'eslint': '^7.6.0'
                 })
             );
             pkg.scripts = sort(
