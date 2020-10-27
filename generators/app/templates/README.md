@@ -1,5 +1,5 @@
 [![NPM version](https://badge.fury.io/js/<%= encodeURIComponent(name) %>.svg)](https://npmjs.org/package/<%= name %>)
-[![Build Status](https://travis-ci.org/<%= name[0] === '@' ? name.slice(1) : name %>.svg?branch=master)](https://travis-ci.org/<%= name[0] === '@' ? name.slice(1) : name %>)
+[![Build Status](https://travis-ci.com/<%= name[0] === '@' ? name.slice(1) : name %>.svg?branch=master)](https://travis-ci.com/<%= name[0] === '@' ? name.slice(1) : name %>)
 [![Coverage Status](https://coveralls.io/repos/github/<%= name[0] === '@' ? name.slice(1) : name %>/badge.svg?branch=master)](https://coveralls.io/github/<%= name[0] === '@' ? name.slice(1) : name %>?branch=master)
 
 # <%= name %>

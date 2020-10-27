@@ -1,5 +1,5 @@
 [![NPM version](https://badge.fury.io/js/%40dizmo%2Fgenerator-module.svg)](https://npmjs.org/package/@dizmo/generator-module)
-[![Build Status](https://travis-ci.org/dizmo/yeoman-generator-module.svg?branch=master)](https://travis-ci.org/dizmo/yeoman-generator-module)
+[![Build Status](https://travis-ci.com/dizmo/yeoman-generator-module.svg?branch=master)](https://travis-ci.com/dizmo/yeoman-generator-module)
 
 # @dizmo/generator-module
 
