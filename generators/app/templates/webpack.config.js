@@ -1,9 +1,11 @@
 module.exports = {
     devtool: 'source-map',
-    entry: './dist/lib/index.js',
+    entry: [
+        './dist/lib/index.js'
+    ],
     module: {
         rules: [{
-            test: /\.js$/,
+            test: /\.js$/i,
             use: ['source-map-loader'],
             enforce: 'pre'
         }]

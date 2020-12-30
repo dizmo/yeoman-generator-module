@@ -17,7 +17,7 @@ npm install <%= name %> --save
 ### Require
 
 ```javascript
-const lib = require('<%= name %>');
+import '<%= name %>';
 ```
 
 ### Examples

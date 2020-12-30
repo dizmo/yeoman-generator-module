@@ -33,11 +33,11 @@ module.exports = class extends Generator {
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
                     '@types/chai': '^4.2.14',
-                    '@types/mocha': '^8.0.3',
-                    '@typescript-eslint/parser': '4.6.0',
-                    '@typescript-eslint/eslint-plugin': '4.6.0',
-                    'typescript': '^4.0.5',
-                    'typedoc': '^0.19.2'
+                    '@types/mocha': '^8.2.0',
+                    '@typescript-eslint/parser': '4.11.1',
+                    '@typescript-eslint/eslint-plugin': '4.11.1',
+                    'typescript': '^4.1.3',
+                    'typedoc': '^0.20.5'
                 })
             );
             if (pkg.devDependencies['jsdoc']) {
