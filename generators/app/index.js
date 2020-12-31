@@ -114,7 +114,7 @@ module.exports = class extends Generator {
                 if (pkg && pkg.description) {
                     return pkg.description;
                 }
-                return self.description || 'library module';
+                return self.description || 'module';
             },
             when: function (prop) {
                 if (pkg && pkg.description) {
@@ -213,8 +213,8 @@ module.exports = class extends Generator {
                 if (pkg && pkg.description) {
                     prop.description = pkg.description;
                 } else {
-                    prop.description = self.options['description']
-                        || 'library module';
+                    prop.description
+                        = self.options['description'] || 'module';
                 }
             }
             if (prop.personName === undefined) {
@@ -306,7 +306,7 @@ module.exports = class extends Generator {
                     'nyc': '^15.1.0',
                     'source-map-loader': '^2.0.0',
                     'webpack': '^5.11.1',
-                    'webpack-cli': '^4.3.0',
+                    'webpack-cli': '^4.3.1',
                     'yargs': '^16.2.0'
                })
             );

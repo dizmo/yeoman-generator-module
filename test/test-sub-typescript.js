@@ -54,7 +54,7 @@ describe('generator-module:sub-typescript', function () {
                     }
                 ],
                 'dependencies': {},
-                'description': 'library module',
+                'description': 'module',
                 'devDependencies': {
                     '@babel/cli': '^7.12.10',
                     '@babel/core': '^7.12.10',
@@ -74,14 +74,13 @@ describe('generator-module:sub-typescript', function () {
                     'typedoc': '^0.20.5',
                     'typescript': '^4.1.3',
                     'webpack': '^5.11.1',
-                    'webpack-cli': '^4.3.0',
+                    'webpack-cli': '^4.3.1',
                     'yargs': '^16.2.0'
                 },
                 'files': [
                     'dist/lib'
                 ],
                 'keywords': [
-                    'library',
                     'module'
                 ],
                 'license': 'ISC',

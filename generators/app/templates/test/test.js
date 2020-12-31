@@ -1,8 +1,6 @@
-/* eslint-env node, mocha */
-
-'use strict';
-import { expect } from 'chai';
+/* eslint-env browser, node, mocha */
 import * as index from '../lib';
+import { expect } from 'chai';
 
 describe('index.id', () => {
     it('should exist', () => {

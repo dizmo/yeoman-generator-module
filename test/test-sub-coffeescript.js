@@ -53,7 +53,7 @@ describe('generator-module:sub-coffeescript', function () {
                     }
                 ],
                 'dependencies': {},
-                'description': 'library module',
+                'description': 'module',
                 'devDependencies': {
                     '@babel/cli': '^7.12.10',
                     '@babel/core': '^7.12.10',
@@ -70,14 +70,13 @@ describe('generator-module:sub-coffeescript', function () {
                     'source-map-loader': '^2.0.0',
                     'tmp': '^0.2.1',
                     'webpack': '^5.11.1',
-                    'webpack-cli': '^4.3.0',
+                    'webpack-cli': '^4.3.1',
                     'yargs': '^16.2.0'
                 },
                 'files': [
                     'dist/lib'
                 ],
                 'keywords': [
-                    'library',
                     'module'
                 ],
                 'license': 'ISC',

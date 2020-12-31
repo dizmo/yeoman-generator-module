@@ -52,7 +52,7 @@ describe('generator-module:app', function () {
                     }
                 ],
                 'dependencies': {},
-                'description': 'library module',
+                'description': 'module',
                 'devDependencies': {
                     '@babel/cli': '^7.12.10',
                     '@babel/core': '^7.12.10',
@@ -67,14 +67,13 @@ describe('generator-module:app', function () {
                     'nyc': '^15.1.0',
                     'source-map-loader': '^2.0.0',
                     'webpack': '^5.11.1',
-                    'webpack-cli': '^4.3.0',
+                    'webpack-cli': '^4.3.1',
                     'yargs': '^16.2.0'
                 },
                 'files': [
                     'dist/lib'
                 ],
                 'keywords': [
-                    'library',
                     'module'
                 ],
                 'license': 'ISC',

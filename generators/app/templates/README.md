@@ -4,7 +4,7 @@
 
 # <%= name %>
 
-Library module.
+Module.
 
 ## Usage
 
