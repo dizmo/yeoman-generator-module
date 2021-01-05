@@ -12,7 +12,6 @@ const yosay = require('yosay');
 module.exports = class extends Generator {
     constructor(args, opts) {
         super(args, opts);
-
         this.argument('name', {
             defaults: '@dizmo/my-module',
             required: false,
@@ -63,7 +62,6 @@ module.exports = class extends Generator {
             type: Boolean
         });
     }
-
     prompting() {
         const self = this;
         const prompts = [], pkg = fs.existsSync('package.json')
@@ -75,7 +73,6 @@ module.exports = class extends Generator {
                 '{0}', chalk.green.bold('dizmo module')
             )
         ));
-
         prompts.push({
             type: 'input',
             name: 'name',
@@ -105,7 +102,6 @@ module.exports = class extends Generator {
                 return !value.match(/\s/);
             }
         });
-
         prompts.push({
             type: 'input',
             name: 'description',
@@ -128,7 +124,6 @@ module.exports = class extends Generator {
                 return true;
             }
         });
-
         prompts.push({
             store: true,
             type: 'input',
@@ -152,7 +147,6 @@ module.exports = class extends Generator {
                 return true;
             }
         });
-
         prompts.push({
             store: true,
             type: 'input',
@@ -176,7 +170,6 @@ module.exports = class extends Generator {
                 return true;
             }
         });
-
         prompts.push({
             store: true,
             type: 'input',
@@ -200,7 +193,6 @@ module.exports = class extends Generator {
                 return true;
             }
         });
-
         return this.prompt(prompts).then(function (prop) {
             if (prop.name === undefined) {
                 if (pkg && pkg.name) {
@@ -243,7 +235,6 @@ module.exports = class extends Generator {
             });
         });
     }
-
     configuring() {
         if (fs.existsSync('package.json')) {
             this.destinationRoot(process.cwd());
@@ -260,7 +251,6 @@ module.exports = class extends Generator {
         }
         this.config.save();
     }
-
     writing() {
         const upgrade = Boolean(
             this.options.upgrade && fs.existsSync('package.json'));
@@ -268,8 +258,8 @@ module.exports = class extends Generator {
             this.fs.copyTpl(
                 this.templatePath('_package.json'),
                 this.destinationPath('package.json'), this.properties, {
-                    _: lodash
-                });
+                _: lodash
+            });
         }
         if (!upgrade || upgrade) {
             this.fs.copyTpl(
@@ -308,11 +298,11 @@ module.exports = class extends Generator {
                     'webpack': '^5.11.1',
                     'webpack-cli': '^4.3.1',
                     'yargs': '^16.2.0'
-               })
+                })
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^7.16.0'
+                    'eslint': '^7.17.0'
                 })
             );
             pkg.scripts = sort(
@@ -339,7 +329,7 @@ module.exports = class extends Generator {
             this.fs.copyTpl(
                 this.templatePath('LICENSE'),
                 this.destinationPath('LICENSE'), lodash.assign(
-                    this.properties, {year: new Date().getFullYear()}
+                    this.properties, { year: new Date().getFullYear() }
                 )
             );
             this.fs.copyTpl(
@@ -383,7 +373,6 @@ module.exports = class extends Generator {
         }
         this.conflicter.force = upgrade;
     }
-
     end() {
         const pkg = this.fs.readJSON(
             this.destinationPath('package.json'));
@@ -409,16 +398,13 @@ module.exports = class extends Generator {
             this.log(
                 `\nSetting the project root at: ${this.destinationPath()}`);
         }
-
         this._rim();
         this._git();
     }
-
     _rim() {
         rimraf.sync(
             this.destinationPath('node_modules/'));
     }
-
     _git() {
         const git = shell.which('git');
         if (git && this.options.git) {

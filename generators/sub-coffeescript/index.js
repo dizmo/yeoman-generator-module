@@ -49,7 +49,6 @@ module.exports = class extends Generator {
         }
         this.conflicter.force = this.options.force || upgrade;
     }
-
     end() {
         rimraf.sync(
             this.destinationPath('.eslintrc.json'));

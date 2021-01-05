@@ -66,7 +66,7 @@ describe('generator-module:sub-typescript', function () {
                     '@typescript-eslint/parser': '4.11.1',
                     'chai': '^4.2.0',
                     'coveralls': '^3.1.0',
-                    'eslint': '^7.16.0',
+                    'eslint': '^7.17.0',
                     'minami': '^1.2.3',
                     'mocha': '^8.2.1',
                     'nyc': '^15.1.0',

@@ -60,7 +60,7 @@ describe('generator-module:app', function () {
                     '@babel/preset-env': '^7.12.11',
                     'chai': '^4.2.0',
                     'coveralls': '^3.1.0',
-                    'eslint': '^7.16.0',
+                    'eslint': '^7.17.0',
                     'jsdoc': '^3.6.6',
                     'minami': '^1.2.3',
                     'mocha': '^8.2.1',

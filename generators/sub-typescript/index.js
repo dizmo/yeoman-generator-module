@@ -22,7 +22,7 @@ module.exports = class extends Generator {
             this.fs.copy(
                 this.templatePath('typedoc.json'),
                 this.destinationPath('typedoc.json'));
-            }
+        }
         if (!upgrade || upgrade) {
             const pkg = this.fs.readJSON(
                 this.destinationPath('package.json')
@@ -61,7 +61,6 @@ module.exports = class extends Generator {
         }
         this.conflicter.force = this.options.force || upgrade;
     }
-
     end() {
         rimraf.sync(
             this.destinationPath('jsdoc.json'));
