@@ -8,25 +8,12 @@ const rimraf = require('rimraf');
 module.exports = class extends Generator {
     writing() {
         const upgrade = Boolean(
-            this.options.upgrade && fs.existsSync('package.json'));
+            this.options.upgrade && fs.existsSync('package.json')
+        );
+        const pkg = this.fs.readJSON(
+            this.destinationPath('package.json')
+        );
         if (!upgrade || upgrade) {
-            const pkg = this.fs.readJSON(
-                this.destinationPath('package.json')
-            );
-            this.fs.copyTpl(
-                this.templatePath('cli/'),
-                this.destinationPath('cli/'), pkg);
-            this.fs.copy(
-                this.templatePath('_eslintrc.json'),
-                this.destinationPath('.eslintrc.json'));
-            this.fs.copy(
-                this.templatePath('typedoc.json'),
-                this.destinationPath('typedoc.json'));
-        }
-        if (!upgrade || upgrade) {
-            const pkg = this.fs.readJSON(
-                this.destinationPath('package.json')
-            );
             if (pkg.types === undefined) {
                 pkg.types = 'dist/lib/index.d.ts';
             }
@@ -43,22 +30,43 @@ module.exports = class extends Generator {
             if (pkg.devDependencies['jsdoc']) {
                 delete pkg.devDependencies['jsdoc'];
             }
-            this.fs.writeJSON(
-                this.destinationPath('package.json'), sort(pkg), null, 2);
+        }
+        if (!upgrade || upgrade) {
+            this.fs.copyTpl(
+                this.templatePath('cli/'),
+                this.destinationPath('cli/'), {
+                    ...pkg, _: require('lodash')
+                }
+            );
         }
         if (!upgrade) {
-            this.fs.copy(
+            this.fs.copyTpl(
                 this.templatePath('lib/'),
-                this.destinationPath('lib/'));
-            this.fs.copy(
+                this.destinationPath('lib/'), {
+                    ...pkg, _: require('lodash')
+                }
+            );
+            this.fs.copyTpl(
                 this.templatePath('test/'),
-                this.destinationPath('test/'));
+                this.destinationPath('test/'), {
+                    ...pkg, _: require('lodash')
+                }
+            );
         }
         if (!upgrade) {
+            this.fs.copy(
+                this.templatePath('_eslintrc.json'),
+                this.destinationPath('.eslintrc.json'));
             this.fs.copy(
                 this.templatePath('tsconfig.json'),
                 this.destinationPath('tsconfig.json'));
+            this.fs.copy(
+                this.templatePath('typedoc.json'),
+                this.destinationPath('typedoc.json'));
         }
+        this.fs.writeJSON(
+            this.destinationPath('package.json'), sort(pkg), null, 2
+        );
         this.conflicter.force = this.options.force || upgrade;
     }
     end() {

@@ -8,19 +8,12 @@ const rimraf = require('rimraf');
 module.exports = class extends Generator {
     writing() {
         const upgrade = Boolean(
-            this.options.upgrade && fs.existsSync('package.json'));
+            this.options.upgrade && fs.existsSync('package.json')
+        );
+        const pkg = this.fs.readJSON(
+            this.destinationPath('package.json')
+        );
         if (!upgrade || upgrade) {
-            const pkg = this.fs.readJSON(
-                this.destinationPath('package.json')
-            );
-            this.fs.copyTpl(
-                this.templatePath('cli/'),
-                this.destinationPath('cli/'), pkg);
-        }
-        if (!upgrade || upgrade) {
-            const pkg = this.fs.readJSON(
-                this.destinationPath('package.json')
-            );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
                     'coffeelint': '2.1.0',
@@ -31,22 +24,37 @@ module.exports = class extends Generator {
             if (pkg.devDependencies['eslint']) {
                 delete pkg.devDependencies['eslint'];
             }
-            this.fs.writeJSON(
-                this.destinationPath('package.json'), sort(pkg), null, 2);
+        }
+        if (!upgrade || upgrade) {
+            this.fs.copyTpl(
+                this.templatePath('cli/'),
+                this.destinationPath('cli/'), {
+                    ...pkg, _: require('lodash')
+                }
+            );
         }
         if (!upgrade) {
-            this.fs.copy(
+            this.fs.copyTpl(
                 this.templatePath('lib/'),
-                this.destinationPath('lib/'));
-            this.fs.copy(
+                this.destinationPath('lib/'), {
+                    ...pkg, _: require('lodash')
+                }
+            );
+            this.fs.copyTpl(
                 this.templatePath('test/'),
-                this.destinationPath('test/'));
+                this.destinationPath('test/'), {
+                    ...pkg, _: require('lodash')
+                }
+            );
         }
         if (!upgrade) {
             this.fs.copy(
                 this.templatePath('coffeelint.json'),
                 this.destinationPath('coffeelint.json'));
         }
+        this.fs.writeJSON(
+            this.destinationPath('package.json'), sort(pkg), null, 2
+        );
         this.conflicter.force = this.options.force || upgrade;
     }
     end() {

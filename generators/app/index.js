@@ -253,7 +253,8 @@ module.exports = class extends Generator {
     }
     writing() {
         const upgrade = Boolean(
-            this.options.upgrade && fs.existsSync('package.json'));
+            this.options.upgrade && fs.existsSync('package.json')
+        );
         if (!upgrade) {
             this.fs.copyTpl(
                 this.templatePath('_package.json'),
@@ -261,23 +262,10 @@ module.exports = class extends Generator {
                 _: lodash
             });
         }
+        const pkg = this.fs.readJSON(
+            this.destinationPath('package.json')
+        );
         if (!upgrade || upgrade) {
-            this.fs.copyTpl(
-                this.templatePath('cli/'),
-                this.destinationPath('cli/'), this.properties);
-        }
-        if (!upgrade || upgrade) {
-            this.fs.copy(
-                this.templatePath('babel.config.js'),
-                this.destinationPath('babel.config.js'));
-            this.fs.copy(
-                this.templatePath('webpack.config.js'),
-                this.destinationPath('webpack.config.js'));
-        }
-        if (!upgrade || upgrade) {
-            const pkg = this.fs.readJSON(
-                this.destinationPath('package.json')
-            );
             pkg.dependencies = sort(
                 lodash.assign(pkg.dependencies, {
                 })
@@ -316,25 +304,36 @@ module.exports = class extends Generator {
                     'test': 'node ./cli/run-test.js'
                 })
             );
-            this.fs.writeJSON(
-                this.destinationPath('package.json'), sort(pkg), null, 2);
+        }
+        if (!upgrade || upgrade) {
+            this.fs.copyTpl(
+                this.templatePath('cli/'),
+                this.destinationPath('cli/'), {
+                    ...this.properties, _: require('lodash')
+                }
+            );
+        }
+        if (!upgrade) {
+            this.fs.copyTpl(
+                this.templatePath('lib/'),
+                this.destinationPath('lib/'), {
+                    ...this.properties, _: require('lodash')
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('test/'),
+                this.destinationPath('test/'), {
+                    ...this.properties, _: require('lodash')
+                }
+            );
         }
         if (!upgrade) {
             this.fs.copy(
-                this.templatePath('lib/'),
-                this.destinationPath('lib/'));
+                this.templatePath('babel.config.js'),
+                this.destinationPath('babel.config.js'));
             this.fs.copy(
-                this.templatePath('test/'),
-                this.destinationPath('test/'));
-            this.fs.copyTpl(
-                this.templatePath('LICENSE'),
-                this.destinationPath('LICENSE'), lodash.assign(
-                    this.properties, { year: new Date().getFullYear() }
-                )
-            );
-            this.fs.copyTpl(
-                this.templatePath('README.md'),
-                this.destinationPath('README.md'), this.properties);
+                this.templatePath('webpack.config.js'),
+                this.destinationPath('webpack.config.js'));
         }
         if (!upgrade) {
             this.fs.copy(
@@ -344,7 +343,23 @@ module.exports = class extends Generator {
                 this.templatePath('_eslintrc.json'),
                 this.destinationPath('.eslintrc.json'));
         }
-        if (!upgrade || upgrade) {
+        if (!upgrade) {
+            this.fs.copyTpl(
+                this.templatePath('LICENSE'),
+                this.destinationPath('LICENSE'), {
+                    ...this.properties, year: new Date().getFullYear(),
+                    _: require('lodash')
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('README.md'),
+                this.destinationPath('README.md'), {
+                    ...this.properties, year: new Date().getFullYear(),
+                    _: require('lodash')
+                }
+            );
+        }
+        if (!upgrade) {
             if (this.options.git || fs.existsSync('.gitignore')) {
                 this.fs.copy(
                     this.templatePath('_npmignore'),
@@ -355,7 +370,7 @@ module.exports = class extends Generator {
                     this.destinationPath('.npmignore'));
             }
         }
-        if (!upgrade || upgrade) {
+        if (!upgrade) {
             this.fs.copy(
                 this.templatePath('dist/_gitignore'),
                 this.destinationPath('dist/.gitignore'));
@@ -363,7 +378,7 @@ module.exports = class extends Generator {
                 this.templatePath('dist/_npmignore'),
                 this.destinationPath('dist/.npmignore'));
         }
-        if (!upgrade || upgrade) {
+        if (!upgrade) {
             this.fs.copy(
                 this.templatePath('jsdoc.json'),
                 this.destinationPath('jsdoc.json'));
@@ -371,12 +386,15 @@ module.exports = class extends Generator {
                 this.templatePath('docs/_gitignore'),
                 this.destinationPath('docs/.gitignore'));
         }
+        this.fs.writeJSON(
+            this.destinationPath('package.json'), sort(pkg), null, 2
+        );
         this.conflicter.force = upgrade;
     }
     end() {
         const pkg = this.fs.readJSON(
-            this.destinationPath('package.json'));
-
+            this.destinationPath('package.json')
+        );
         if (!this.options['typescript'] && this.options.upgrade && pkg.devDependencies['coffeescript'] ||
             !this.options['typescript'] && this.options['coffeescript']
         ) {
