@@ -5,6 +5,8 @@
 
 > Generator for [Node.js] JavaScript, TypeScript and CoffeeScript modules
 
+Generates [NPM] compatible module projects that can be published, installed and even upgraded. The supported development steps are cleaning, linting, building (including bundling) and testing (including coverage statistics).
+
 ## Prerequisites
 
 * [Node.js] v14.15.3 LTS (or higher); for Linux distribution based packages (`deb` or `rpm`) see also [binary distributions](https://github.com/nodesource/distributions).
@@ -128,3 +130,4 @@ npm publish --access=public
  © [dizmo AG](http://dizmo.com/), Switzerland
 
 [Node.js]: https://nodejs.org
+[NPM]: https://www.npmjs.com
