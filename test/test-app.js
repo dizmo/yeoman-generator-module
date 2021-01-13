@@ -52,7 +52,7 @@ describe('generator-module:app', function () {
                     }
                 ],
                 'dependencies': {},
-                'description': 'module',
+                'description': 'a module',
                 'devDependencies': {
                     '@babel/cli': '^7.12.10',
                     '@babel/core': '^7.12.10',

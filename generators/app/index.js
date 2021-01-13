@@ -21,7 +21,6 @@ module.exports = class extends Generator {
             desc: 'Short one-liner describing the module',
             type: String
         });
-
         this.option('author', {
             defaults: this.user.git.name() || process.env.USER,
             desc: 'Name of the author',
@@ -64,15 +63,14 @@ module.exports = class extends Generator {
     }
     prompting() {
         const self = this;
-        const prompts = [], pkg = fs.existsSync('package.json')
-            ? JSON.parse(fs.readFileSync('package.json'))
-            : {};
-
-        this.log(yosay(
-            'Welcome to the awesome {0} generator!'.replace(
-                '{0}', chalk.green.bold('dizmo module')
+        const prompts = [];
+        const pkg = fs.existsSync('package.json')
+            ? JSON.parse(fs.readFileSync('package.json')) : {};
+        this.log(yosay('Welcome to the {0} generator!'.replace(
+            '{0}', chalk.green.bold(
+                self.options['prompts']?.yosay || 'dizmo module'
             )
-        ));
+        )));
         prompts.push({
             type: 'input',
             name: 'name',
@@ -110,7 +108,9 @@ module.exports = class extends Generator {
                 if (pkg && pkg.description) {
                     return pkg.description;
                 }
-                return self.description || 'module';
+                return self.description
+                    || self.options['prompts']?.description?.default
+                    || 'a module';
             },
             when: function (prop) {
                 if (pkg && pkg.description) {
@@ -205,8 +205,9 @@ module.exports = class extends Generator {
                 if (pkg && pkg.description) {
                     prop.description = pkg.description;
                 } else {
-                    prop.description
-                        = self.options['description'] || 'module';
+                    prop.description = self.options['description']
+                        || self.options['prompts']?.description?.default
+                        || 'a module';
                 }
             }
             if (prop.personName === undefined) {
