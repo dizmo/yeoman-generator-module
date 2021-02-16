@@ -24,7 +24,7 @@ module.exports = class extends Generator {
                     '@typescript-eslint/parser': '4.12.0',
                     '@typescript-eslint/eslint-plugin': '4.12.0',
                     'typescript': '^4.1.3',
-                    'typedoc': '^0.20.13'
+                    'typedoc': '^0.20.25'
                 })
             );
             if (pkg.devDependencies['jsdoc']) {

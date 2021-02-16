@@ -71,7 +71,7 @@ describe('generator-module:sub-typescript', function () {
                     'mocha': '^8.2.1',
                     'nyc': '^15.1.0',
                     'source-map-loader': '^2.0.0',
-                    'typedoc': '^0.20.13',
+                    'typedoc': '^0.20.25',
                     'typescript': '^4.1.3',
                     'webpack': '^5.11.1',
                     'webpack-cli': '^4.3.1',
