@@ -68,7 +68,7 @@ module.exports = class extends Generator {
             ? JSON.parse(fs.readFileSync('package.json')) : {};
         this.log(yosay('Welcome to the {0} generator!'.replace(
             '{0}', chalk.green.bold(
-                self.options['prompts']?.yosay || 'dizmo module'
+                oc(self.options['prompts'], 'yosay') || 'dizmo module'
             )
         )));
         prompts.push({
@@ -109,7 +109,7 @@ module.exports = class extends Generator {
                     return pkg.description;
                 }
                 return self.description
-                    || self.options['prompts']?.description?.default
+                    || oc(oc(self.options['prompts'], 'description'), 'default')
                     || 'a module';
             },
             when: function (prop) {
@@ -206,7 +206,7 @@ module.exports = class extends Generator {
                     prop.description = pkg.description;
                 } else {
                     prop.description = self.options['description']
-                        || self.options['prompts']?.description?.default
+                        || oc(oc(self.options['prompts'], 'description'), 'default')
                         || 'a module';
                 }
             }
@@ -437,4 +437,7 @@ function sort(object) {
     return Object.entries(object).sort().reduce(
         (a, [k, v]) => { a[k] = v; return a; }, {}
     );
+}
+function oc(el, a) {
+    return el ? el[a] : undefined;
 }
