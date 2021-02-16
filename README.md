@@ -3,7 +3,7 @@
 
 # @dizmo/generator-module
 
-> Generator for [Node.js] JavaScript, TypeScript and CoffeeScript modules
+> Generator for [Node.js] JavaScript, CoffeeScript and TypeScript modules
 
 Generates [NPM] compatible module projects that can be published, installed and even upgraded. The supported development steps are cleaning, linting, building (including bundling) and testing (including coverage statistics).
 
