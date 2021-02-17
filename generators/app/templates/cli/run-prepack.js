@@ -9,12 +9,14 @@ const prepare = () => (
 const umd = () => npx('webpack',
     '--output-filename', 'index.umd.js',
     '--output-path', 'dist/lib',
-    '--mode', 'development'
+    '--mode', 'development',
+    '--stats', 'errors-only'
 );
 const min = () => npx('webpack',
     '--output-filename', 'index.min.js',
     '--output-path', 'dist/lib',
-    '--mode', 'production'
+    '--mode', 'production',
+    '--stats', 'errors-only'
 );
 if (require.main === module) {
     npm('install').then(prepare).catch(exit);
