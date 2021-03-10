@@ -21,13 +21,13 @@ describe('index.id', () => {
         expect(id(true)).to.equal(true);
     });
     it('should return an array', () => {
-        let a = id(undefined, null)
+        let a = id(undefined, null);
         expect(a).to.be.an('array');
         expect(a).to.include.members([undefined, null]);
-        let b = id(false, true)
+        let b = id(false, true);
         expect(b).to.be.an('array');
         expect(b).to.include.members([false, true]);
-        let c = id(0, 1)
+        let c = id(0, 1);
         expect(c).to.be.an('array');
         expect(c).to.include.members([0, 1]);
     });
