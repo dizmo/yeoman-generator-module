@@ -55,7 +55,7 @@ module.exports = class extends Generator {
         this.fs.writeJSON(
             this.destinationPath('package.json'), sort(pkg), null, 2
         );
-        this.conflicter.force = this.options.force || upgrade;
+        this.env.conflicter.force = this.options.force || upgrade;
     }
     end() {
         rimraf.sync(

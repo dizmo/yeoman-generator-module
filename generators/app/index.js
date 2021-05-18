@@ -273,25 +273,25 @@ module.exports = class extends Generator {
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    '@babel/cli': '^7.13.10',
-                    '@babel/core': '^7.13.10',
-                    '@babel/plugin-transform-runtime': '^7.13.10',
-                    '@babel/preset-env': '^7.13.10',
-                    'chai': '^4.3.3',
+                    '@babel/cli': '^7.14.3',
+                    '@babel/core': '^7.14.3',
+                    '@babel/plugin-transform-runtime': '^7.14.3',
+                    '@babel/preset-env': '^7.14.2',
+                    'chai': '^4.3.4',
                     'coveralls': '^3.1.0',
-                    'jsdoc': '^3.6.6',
+                    'jsdoc': '^3.6.7',
                     'minami': '^1.2.3',
-                    'mocha': '^8.3.1',
+                    'mocha': '^8.4.0',
                     'nyc': '^15.1.0',
-                    'source-map-loader': '^2.0.1',
-                    'webpack': '^5.24.4',
-                    'webpack-cli': '^4.5.0',
-                    'yargs': '^16.2.0'
+                    'source-map-loader': '^2.0.2',
+                    'webpack': '^5.37.0',
+                    'webpack-cli': '^4.7.0',
+                    'yargs': '^17.0.1'
                 })
             );
             pkg.devDependencies = sort(
                 lodash.assign(pkg.devDependencies, {
-                    'eslint': '^7.21.0'
+                    'eslint': '^7.26.0'
                 })
             );
             pkg.scripts = sort(
@@ -391,7 +391,7 @@ module.exports = class extends Generator {
         this.fs.writeJSON(
             this.destinationPath('package.json'), sort(pkg), null, 2
         );
-        this.conflicter.force = upgrade;
+        this.env.conflicter.force = upgrade;
     }
     end() {
         const pkg = this.fs.readJSON(

@@ -1,44 +1,44 @@
 const assert = require('yeoman-assert');
-const { run } = require('yeoman-test');
+const helpers = require('yeoman-test');
 const { join } = require('path');
 
 describe('generator-module:app', function () {
     const generator = join(__dirname, '../generators/app');
     it('yo @dizmo/module', () => {
-        return run(generator).withOptions({
+        return helpers.run(generator).withOptions({
             'author': 'Dizmo Developer',
             'email': 'developer@dizmo.com',
             'url': 'https://www.dizmo.com/developer'
         }).then(() => {
             assert.file([
-                'babel.config.js',
-                'cli',
-                'cli/run-build.js',
-                'cli/run-clean.js',
-                'cli/run-docs.js',
-                'cli/run-lint.js',
-                'cli/run-prepack.js',
-                'cli/run-test.js',
-                'cli/run-utils.js',
-                'docs/.gitignore',
-                'dist',
-                'dist/.gitignore',
-                'dist/.npmignore',
-                '.eslintrc.json',
-                'jsdoc.json',
-                'lib',
-                'lib/index.js',
-                'LICENSE',
-                '.npmignore',
-                'package.json',
-                'README.md',
-                'test',
-                'test/test.js',
-                '.travis.yml',
-                'webpack.config.js',
-                '.yo-rc.json'
+                'my-module/babel.config.js',
+                'my-module/cli',
+                'my-module/cli/run-build.js',
+                'my-module/cli/run-clean.js',
+                'my-module/cli/run-docs.js',
+                'my-module/cli/run-lint.js',
+                'my-module/cli/run-prepack.js',
+                'my-module/cli/run-test.js',
+                'my-module/cli/run-utils.js',
+                'my-module/docs/.gitignore',
+                'my-module/dist',
+                'my-module/dist/.gitignore',
+                'my-module/dist/.npmignore',
+                'my-module/.eslintrc.json',
+                'my-module/jsdoc.json',
+                'my-module/lib',
+                'my-module/lib/index.js',
+                'my-module/LICENSE',
+                'my-module/.npmignore',
+                'my-module/package.json',
+                'my-module/README.md',
+                'my-module/test',
+                'my-module/test/test.js',
+                'my-module/.travis.yml',
+                'my-module/webpack.config.js',
+                'my-module/.yo-rc.json'
             ]);
-            assert.jsonFileContent('package.json', {
+            assert.jsonFileContent('my-module/package.json', {
                 'author': {
                     'name': 'Dizmo Developer',
                     'email': 'developer@dizmo.com',
@@ -54,21 +54,21 @@ describe('generator-module:app', function () {
                 'dependencies': {},
                 'description': 'a module',
                 'devDependencies': {
-                    '@babel/cli': '^7.13.10',
-                    '@babel/core': '^7.13.10',
-                    '@babel/plugin-transform-runtime': '^7.13.10',
-                    '@babel/preset-env': '^7.13.10',
-                    'chai': '^4.3.3',
+                    '@babel/cli': '^7.14.3',
+                    '@babel/core': '^7.14.3',
+                    '@babel/plugin-transform-runtime': '^7.14.3',
+                    '@babel/preset-env': '^7.14.2',
+                    'chai': '^4.3.4',
                     'coveralls': '^3.1.0',
-                    'eslint': '^7.21.0',
-                    'jsdoc': '^3.6.6',
+                    'eslint': '^7.26.0',
+                    'jsdoc': '^3.6.7',
                     'minami': '^1.2.3',
-                    'mocha': '^8.3.1',
+                    'mocha': '^8.4.0',
                     'nyc': '^15.1.0',
-                    'source-map-loader': '^2.0.1',
-                    'webpack': '^5.24.4',
-                    'webpack-cli': '^4.5.0',
-                    'yargs': '^16.2.0'
+                    'source-map-loader': '^2.0.2',
+                    'webpack': '^5.37.0',
+                    'webpack-cli': '^4.7.0',
+                    'yargs': '^17.0.1'
                 },
                 'files': [
                     'dist/lib'
@@ -98,16 +98,16 @@ describe('generator-module:app', function () {
         });
     });
     it('yo @dizmo/module --git', () => {
-        return run(generator).withOptions({
+        return helpers.run(generator).withOptions({
             'author': 'Dizmo Developer',
             'email': 'developer@dizmo.com',
             'git': true
         }).then(() => {
             assert.file([
-                '.gitignore'
+                'my-module.git/.gitignore'
             ]);
             assert.noFile([
-                '.npmignore'
+                'my-module.git/.npmignore'
             ]);
         });
     });
