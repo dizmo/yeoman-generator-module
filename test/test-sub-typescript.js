@@ -97,6 +97,7 @@ describe('generator-module:sub-typescript', function () {
                     'docs': 'node ./cli/run-docs.js',
                     'lint': 'node ./cli/run-lint.js',
                     'prepack': 'node ./cli/run-prepack.js',
+                    'prepare': 'npm run -- build --prepack',
                     'test': 'node ./cli/run-test.js'
                 },
                 'types': 'dist/lib/index.d.ts',

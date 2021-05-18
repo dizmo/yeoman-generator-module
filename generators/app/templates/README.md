@@ -20,7 +20,7 @@ npm install <%= name %> --save
 import '<%= name %>';
 ```
 
-### Examples
+### Example(s)
 
 ```javascript
 ...
