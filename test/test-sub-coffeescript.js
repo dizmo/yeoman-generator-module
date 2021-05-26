@@ -67,9 +67,9 @@ describe('generator-module:sub-coffeescript', function () {
                     'minami': '^1.2.3',
                     'mocha': '^8.4.0',
                     'nyc': '^15.1.0',
-                    'source-map-loader': '^2.0.2',
+                    'source-map-loader': '^3.0.0',
                     'tmp': '^0.2.1',
-                    'webpack': '^5.37.0',
+                    'webpack': '^5.37.1',
                     'webpack-cli': '^4.7.0',
                     'yargs': '^17.0.1'
                 },

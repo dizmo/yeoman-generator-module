@@ -9,14 +9,14 @@
     "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
-    "yeoman-generator": "^5.2.0",
+    "yeoman-generator": "^5.3.0",
     "yosay": "^2.0.2"
   },
   "description": "@dizmo/module: a module generator for JavaScript, CoffeeScript and TypeScript",
   "devDependencies": {
     "mocha": "^8.4.0",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^6.0.0"
+    "yeoman-test": "^6.1.0"
   },
   "files": [
     "generators/app",
