@@ -94,6 +94,38 @@ npm run cover
 npm run -- cover --no-lint --no-clean --no-build
 ```
 
+## Debugging
+
+Connect `<%= name %>` to another project:
+
+```sh
+[<%= name %>] $ npm link # symlink global:<%= name %>
+```
+
+```sh
+[a-project] $ npm link a-module # symlink node-modules:<%= name %>
+```
+
+```sh
+[a-project] $ head webpack.config.js # ensure <%= name %> in entry.main
+```
+
+```
+entry: {
+    main: [..., '<%= name %>', './source/index.js']
+}
+```
+
+Disconnect `<%= name %>` from the project:
+
+```sh
+[a-project] $ npm unlink <%= name %> # delete local symlink
+```
+
+```sh
+[<%= name %>] $ npm uninstall -g # delete global symlink
+```
+
 ## Documentation
 
 ```sh

@@ -111,6 +111,38 @@ npm run cover
 npm run -- cover --no-lint --no-clean --no-build
 ```
 
+## Debugging
+
+Connect `my-module` to another project:
+
+```sh
+[my-module] $ npm link # symlink global:my-module
+```
+
+```sh
+[a-project] $ npm link a-module # symlink node-modules:my-module
+```
+
+```sh
+[a-project] $ head webpack.config.js # ensure my-module in entry.main
+```
+
+```
+entry: {
+    main: [..., 'my-module', './source/index.js']
+}
+```
+
+Disconnect `my-module` from the project:
+
+```sh
+[a-project] $ npm unlink my-module # delete local symlink
+```
+
+```sh
+[my-module] $ npm uninstall -g # delete global symlink
+```
+
 ## Documentation
 
 ```sh
