@@ -36,11 +36,15 @@ yo @dizmo/module [--git] [--typescript|--coffeescript]
 ## Upgrade
 
 ```sh
-npm upgrade -g @dizmo/generator-module
+npm upgrade --global @dizmo/generator-module
 ```
 
 ```sh
-yo @dizmo/module --upgrade
+yo @dizmo/module --upgrade --skip-install
+```
+
+```sh
+npm install && npm audit fix
 ```
 
 ## Development
