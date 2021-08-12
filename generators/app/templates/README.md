@@ -103,7 +103,7 @@ Connect `<%= name %>` to another project:
 ```
 
 ```sh
-[a-project] $ npm link a-module # symlink node-modules:<%= name %>
+[a-project] $ npm link <%= name %> # symlink node-modules:<%= name %>
 ```
 
 ```sh
