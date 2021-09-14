@@ -2,8 +2,7 @@ const { npm, npx } = require('./run-utils');
 const { exit } = require('process');
 
 const typedoc = () => npx('typedoc',
-    'lib/index.ts', '--disableOutputCheck',
-    '--options', 'typedoc.json'
+    'lib/index.ts', '--options', 'typedoc.json'
 );
 if (require.main === module) {
     npm('install')
