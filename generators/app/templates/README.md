@@ -14,7 +14,7 @@ Module.
 npm install <%= name %> --save
 ```
 
-### Require
+### Import
 
 ```javascript
 import '<%= name %>';

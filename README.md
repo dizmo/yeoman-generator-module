@@ -124,7 +124,7 @@ Connect `my-module` to another project:
 ```
 
 ```sh
-[a-project] $ npm link a-module # symlink node-modules:my-module
+[a-project] $ npm link my-module # symlink node-modules:my-module
 ```
 
 ```sh
