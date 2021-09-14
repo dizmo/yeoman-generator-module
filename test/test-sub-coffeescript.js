@@ -55,23 +55,23 @@ describe('generator-module:sub-coffeescript', function () {
                 'dependencies': {},
                 'description': 'a module',
                 'devDependencies': {
-                    '@babel/cli': '^7.14.5',
-                    '@babel/core': '^7.14.5',
-                    '@babel/plugin-transform-runtime': '^7.14.5',
-                    '@babel/preset-env': '^7.14.5',
+                    '@babel/cli': '^7.15.4',
+                    '@babel/core': '^7.15.5',
+                    '@babel/plugin-transform-runtime': '^7.15.0',
+                    '@babel/preset-env': '^7.15.6',
                     'chai': '^4.3.4',
                     'coffeelint': '2.1.0',
                     'coffeescript': '^2.5.1',
-                    'coveralls': '^3.1.0',
+                    'coveralls': '^3.1.1',
                     'jsdoc': '^3.6.7',
                     'minami': '^1.2.3',
-                    'mocha': '^9.0.0',
+                    'mocha': '^9.1.1',
                     'nyc': '^15.1.0',
                     'source-map-loader': '^3.0.0',
                     'tmp': '^0.2.1',
-                    'webpack': '^5.38.1',
-                    'webpack-cli': '^4.7.2',
-                    'yargs': '^17.0.1'
+                    'webpack': '^5.52.1',
+                    'webpack-cli': '^4.8.0',
+                    'yargs': '^17.1.1'
                 },
                 'files': [
                     'dist/lib'
